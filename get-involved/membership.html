@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Membership &mdash; Get Involved</title>
+  <meta name="description" content="Become a member of the Virgin Mary Mosque — support the mosque, vote at the AGM, and receive members-only updates.">
+  <link rel="canonical" href="https://virginmarymosque.org.au/get-involved/membership.html">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+</head>
+<body>
+  <div data-include="header"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a> &rsaquo; <span aria-current="page">Membership</span>
+        </nav>
+        <h1>Become a member</h1>
+        <p class="page-hero__lede">Members shape the mosque&rsquo;s direction, vote at the AGM, and receive priority bookings for classes, camps and Nikah services.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid grid--2">
+        <div class="stack">
+          <h2>What members get</h2>
+          <ul>
+            <li>Voting rights at the Annual General Meeting</li>
+            <li>Priority bookings for classes, camps and the Nikah calendar</li>
+            <li>Discounted rates for events and short courses</li>
+            <li>Quarterly members&rsquo; newsletter (separate from the public one)</li>
+            <li>Invitations to members-only community dinners</li>
+          </ul>
+
+          <h2>What it costs</h2>
+          <ul>
+            <li><strong>Individual membership:</strong> $60 / year</li>
+            <li><strong>Family membership (same household):</strong> $100 / year</li>
+            <li><strong>Student/concession:</strong> $20 / year</li>
+          </ul>
+          <p>No one is turned away for cost. Speak to the office if the fee is a barrier.</p>
+        </div>
+
+        <div class="stack">
+          <h2>Apply</h2>
+          <form class="form" action="https://formspree.io/f/REPLACE_MEMBERSHIP" method="post" data-enhanced novalidate>
+            <div class="form__field">
+              <label class="form__label" for="m-name">Full name *</label>
+              <input type="text" id="m-name" name="name" required autocomplete="name">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="m-email">Email *</label>
+              <input type="email" id="m-email" name="email" required autocomplete="email">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="m-phone">Phone</label>
+              <input type="tel" id="m-phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="m-tier">Membership tier</label>
+              <select id="m-tier" name="tier">
+                <option>Individual &mdash; $60</option>
+                <option>Family &mdash; $100</option>
+                <option>Student/concession &mdash; $20</option>
+                <option>I need to discuss the fee</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="m-notes">Anything else to share?</label>
+              <textarea id="m-notes" name="notes"></textarea>
+            </div>
+            <div class="form__honeypot" aria-hidden="true">
+              <label>Leave this field empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <div>
+              <button class="btn btn--primary" type="submit">Apply</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--sunken">
+      <div class="container-narrow">
+        <h2>Members portal</h2>
+        <p>
+          A secure members portal with online profile updates, account history and
+          AGM voting is in development. In the meantime, please email the office for
+          any changes to your membership record.
+        </p>
+        <p>
+          <a class="btn btn--ghost btn--sm" href="mailto:members@virginmarymosque.org.au">members@virginmarymosque.org.au</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

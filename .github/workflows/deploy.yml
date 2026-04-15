@@ -1,0 +1,39 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dark_site:
+        description: "Deploy in crisis (dark-site) mode"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Swap in dark site (if crisis mode)
+        if: ${{ github.event.inputs.dark_site == 'true' }}
+        run: |
+          echo "Deploying in dark-site mode — replacing index.html."
+          mv index.html index.full.html
+          cp dark-site.html index.html
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: virginmarymosque
+          directory: .
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

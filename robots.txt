@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /dark-site.html
+
+Sitemap: https://virginmarymosque.org.au/sitemap.xml

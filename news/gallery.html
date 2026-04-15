@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery &mdash; News &amp; Events</title>
+  <meta name="description" content="Photos from community gatherings, Ramadan iftars, interfaith evenings, youth camps and classes at the Virgin Mary Mosque.">
+  <link rel="canonical" href="https://virginmarymosque.org.au/news/gallery.html">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <style>
+    .gallery {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
+    .gallery__item {
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-100);
+      display: grid;
+      place-items: center;
+      color: var(--color-primary-700);
+      font-family: var(--font-display);
+      text-align: center;
+      padding: var(--space-4);
+    }
+  </style>
+</head>
+<body>
+  <div data-include="header"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a> &rsaquo; <a href="/news/">News</a> &rsaquo;
+          <span aria-current="page">Gallery</span>
+        </nav>
+        <h1>Gallery</h1>
+        <p class="page-hero__lede">Snapshots of community life &mdash; the mosque is people, not walls.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Ramadan 1446 &mdash; Iftar night</h2>
+        <p>Our annual shared iftar drew over 300 friends and neighbours.</p>
+        <div class="gallery" style="margin-bottom: var(--space-7);">
+          <figure class="gallery__item">Shared iftar, main hall</figure>
+          <figure class="gallery__item">Guests arriving at sunset</figure>
+          <figure class="gallery__item">Children&rsquo;s activity corner</figure>
+          <figure class="gallery__item">Maghrib prayer overflow</figure>
+        </div>
+
+        <h2>Maryam lecture series 2025</h2>
+        <p>A full house for the joint lecture with St. Catherine&rsquo;s Parish.</p>
+        <div class="gallery" style="margin-bottom: var(--space-7);">
+          <figure class="gallery__item">Opening remarks</figure>
+          <figure class="gallery__item">Panel discussion</figure>
+          <figure class="gallery__item">Question time</figure>
+          <figure class="gallery__item">Tea afterwards</figure>
+        </div>
+
+        <h2>Youth camp 2025</h2>
+        <div class="gallery">
+          <figure class="gallery__item">Bushwalk</figure>
+          <figure class="gallery__item">Halaqa by the campfire</figure>
+          <figure class="gallery__item">Futsal tournament</figure>
+          <figure class="gallery__item">Suhur together</figure>
+        </div>
+
+        <p style="margin-top: var(--space-7); color: var(--color-ink-soft);">
+          <em>Placeholder tiles will be replaced with actual photographs when content is approved for publication.</em>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>
