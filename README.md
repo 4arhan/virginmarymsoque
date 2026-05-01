@@ -48,13 +48,18 @@ python3 -m http.server 8080
 
 ### Changing prayer times
 
-Prayer times are pulled live from the [Aladhan API](https://aladhan.com/prayer-times-api)
-at `/assets/js/prayer-times.js`.
+Prayer times are pulled from [awqat.com.au](https://awqat.com.au/vmm/) — the same
+source used by the mosque's physical display screens. Two files are fetched:
 
-- **To change the calculation method** (e.g. from MWL to Umm al-Qura), edit the `API_URL`
-  constant. The default `method=3` is MWL, which is suitable for Melbourne.
-- **To change the city**, edit the `city=` and `country=` query parameters.
-- Times are cached in the visitor's browser for the day to reduce API calls.
+1. **Yearly adhan times:** `https://awqat.com.au/www/data/wtimes-AU.MELBOURNE.ini`
+2. **Iqama times:** `https://awqat.com.au/vmm/iqamafixed.js`
+
+Both adhan and iqama are shown side by side in the prayer widget. The iqama file
+contains either fixed times (e.g. Fajr iqama at 6:00) or a minutes-after-adhan
+offset (e.g. Dhuhr iqama = adhan + 10 min). To change iqama times, update the
+`iqamafixed.js` file on the awqat dashboard.
+
+Times are cached in the visitor's browser for the day to reduce requests.
 
 ### Adding a news item
 
