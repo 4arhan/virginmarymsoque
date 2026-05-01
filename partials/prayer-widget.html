@@ -1,20 +1,29 @@
 <section class="prayer-widget" aria-labelledby="prayer-widget-title" data-prayer-widget>
   <h2 id="prayer-widget-title">Today&rsquo;s Prayer Times</h2>
   <p class="prayer-widget__meta">
-    <span data-prayer-location>Melbourne, Australia</span>
+    <span data-prayer-location>Virgin Mary Mosque &middot; Melbourne</span>
     &middot;
     <span data-prayer-date>&mdash;</span>
+  </p>
+  <p class="prayer-widget__meta" style="font-size: 0.75rem; margin-bottom: var(--space-3);">
+    Source: <a href="https://awqat.com.au/vmm/" target="_blank" rel="noreferrer">awqat.com.au</a>
   </p>
   <ul class="prayer-widget__list" data-prayer-list>
     <li class="prayer-widget__row prayer-widget__row--next" data-prayer-next>
       <span class="prayer-widget__name">Next prayer</span>
       <span class="prayer-widget__time" data-prayer-next-time>&mdash;</span>
     </li>
-    <li class="prayer-widget__row" data-prayer="Fajr"><span class="prayer-widget__name">Fajr</span><span class="prayer-widget__time">&mdash;</span></li>
-    <li class="prayer-widget__row" data-prayer="Dhuhr"><span class="prayer-widget__name">Dhuhr</span><span class="prayer-widget__time">&mdash;</span></li>
-    <li class="prayer-widget__row" data-prayer="Asr"><span class="prayer-widget__name">Asr</span><span class="prayer-widget__time">&mdash;</span></li>
-    <li class="prayer-widget__row" data-prayer="Maghrib"><span class="prayer-widget__name">Maghrib</span><span class="prayer-widget__time">&mdash;</span></li>
-    <li class="prayer-widget__row" data-prayer="Isha"><span class="prayer-widget__name">Isha</span><span class="prayer-widget__time">&mdash;</span></li>
+    <li class="prayer-widget__row prayer-widget__row--header">
+      <span class="prayer-widget__name">Prayer</span>
+      <span class="prayer-widget__time">Adhan</span>
+      <span class="prayer-widget__time">Iqama</span>
+    </li>
+    <li class="prayer-widget__row" data-prayer="Fajr"><span class="prayer-widget__name">Fajr</span><span class="prayer-widget__time" data-adhan>&mdash;</span><span class="prayer-widget__time" data-iqama>&mdash;</span></li>
+    <li class="prayer-widget__row" data-prayer="Sunrise"><span class="prayer-widget__name">Sunrise</span><span class="prayer-widget__time" data-adhan>&mdash;</span><span class="prayer-widget__time" data-iqama></span></li>
+    <li class="prayer-widget__row" data-prayer="Dhuhr"><span class="prayer-widget__name">Dhuhr</span><span class="prayer-widget__time" data-adhan>&mdash;</span><span class="prayer-widget__time" data-iqama>&mdash;</span></li>
+    <li class="prayer-widget__row" data-prayer="Asr"><span class="prayer-widget__name">Asr</span><span class="prayer-widget__time" data-adhan>&mdash;</span><span class="prayer-widget__time" data-iqama>&mdash;</span></li>
+    <li class="prayer-widget__row" data-prayer="Maghrib"><span class="prayer-widget__name">Maghrib</span><span class="prayer-widget__time" data-adhan>&mdash;</span><span class="prayer-widget__time" data-iqama>&mdash;</span></li>
+    <li class="prayer-widget__row" data-prayer="Isha"><span class="prayer-widget__name">Isha</span><span class="prayer-widget__time" data-adhan>&mdash;</span><span class="prayer-widget__time" data-iqama>&mdash;</span></li>
   </ul>
   <p class="prayer-widget__error" hidden data-prayer-error>
     Live times unavailable. Please check the mosque noticeboard.
