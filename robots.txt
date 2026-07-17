@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /dark-site.html
 
-Sitemap: https://virginmarymosque.org.au/sitemap.xml
+Sitemap: https://www.virginmarymosque.org.au/sitemap.xml
