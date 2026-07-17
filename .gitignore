@@ -9,3 +9,5 @@ dist/
 .cache/
 coverage/
 .lighthouseci/
+.vercel
+.env*

@@ -1,0 +1,13 @@
+{
+  "_readme": "Upcoming events for the Events page. Each event: title, date (YYYY-MM-DD), time, location, description, and optional tickets {platform, url}. Use SalamTix, Humanitix or any platform URL — the 'Get tickets' button appears automatically. Past events are hidden automatically. Events with recurring:'weekly' always show.",
+  "events": [
+    {
+      "title": "Jumu'ah — three congregations",
+      "recurring": "weekly",
+      "day": "Every Friday",
+      "time": "12:15 PM · 1:15 PM · 2:15 PM",
+      "location": "Virgin Mary Mosque, 143 Hogans Rd",
+      "description": "Khutbahs in Arabic and English across three sessions, so every worshipper can attend."
+    }
+  ]
+}

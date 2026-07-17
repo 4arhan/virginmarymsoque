@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Events &mdash; Virgin Mary Mosque</title>
-  <meta name="description" content="Jumu'ah and community events at Virgin Mary Mosque (Masjid Maryam), Hoppers Crossing. Three Friday sessions at 12:15 PM, 1:15 PM and 2:15 PM.">
+  <meta name="description" content="Upcoming events at Virgin Mary Mosque (Masjid Maryam), Hoppers Crossing: Jumu'ah, Ramadan and Eid programs, lectures and community gatherings, with online ticketing when available.">
   <link rel="canonical" href="https://www.virginmarymosque.org.au/news/events.html">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
@@ -16,53 +16,39 @@
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a> &rsaquo; <a href="/news/">News</a> &rsaquo;
-          <span aria-current="page">Events</span>
+          <a href="/">Home</a> &rsaquo; <a href="/news/">News</a> &rsaquo; <span aria-current="page">Events</span>
         </nav>
-        <h1>Events</h1>
-        <p class="page-hero__lede">Prayer gatherings and community events at Virgin Mary Mosque (Masjid Maryam) &mdash; all are welcome.</p>
+        <h1>Upcoming events</h1>
+        <p class="page-hero__lede">
+          Jumu&rsquo;ah, Ramadan and Eid programs, lectures and community gatherings at
+          Masjid Maryam. Ticketed events link straight to the booking page.
+        </p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div style="display:flex; gap:var(--space-3); flex-wrap:wrap; margin-bottom: var(--space-5);">
-          <a class="btn btn--ghost btn--sm" href="/news/">All</a>
-          <a class="btn btn--ghost btn--sm" href="/news/events.html" aria-current="page">Events</a>
-          <a class="btn btn--ghost btn--sm" href="/news/gallery.html">Gallery</a>
+        <div class="stack-lg" data-events-list aria-live="polite">
+          <p>Loading events&hellip;</p>
         </div>
 
-        <span class="section__eyebrow">Weekly</span>
-        <h2>What&rsquo;s on</h2>
-        <div class="timeline" style="margin-top: var(--space-5);">
-          <article class="timeline__item">
-            <span class="timeline__date">Every Friday</span>
-            <div>
-              <h3 class="timeline__title">Jumu&rsquo;ah</h3>
-              <p>Three sessions every Friday &mdash; 12:15 PM, 1:15 PM and 2:15 PM &mdash; with khutbahs in Arabic and English.</p>
-              <p><span class="chip">Weekly</span></p>
-            </div>
-          </article>
-        </div>
-
-        <p class="callout" style="margin-top: var(--space-5);">
-          <strong>Other events.</strong>
-          Lectures, iftars and community gatherings are announced on
-          <a href="https://facebook.com/virginmarymosque" rel="noreferrer" target="_blank">Facebook</a>.
-          For details, call the office on <a href="tel:+61380870900">(03) 8087 0900</a> or email
+        <p class="callout" style="margin-top: var(--space-6);">
+          <strong>Announcements land on our socials first.</strong>
+          Follow <a href="https://facebook.com/virginmarymosque" rel="noreferrer" target="_blank">Facebook</a>
+          and <a href="https://instagram.com/virginmarymosque" rel="noreferrer" target="_blank">Instagram</a>,
+          or call <a href="tel:+61380870900">(03) 8087 0900</a> to hear what&rsquo;s coming up.
+          Running an event with us? Email
           <a href="mailto:admin@virginmarymosque.org.au?subject=Event%20enquiry">admin@virginmarymosque.org.au</a>.
         </p>
-
-        <hr>
-
-        <span class="section__eyebrow">Past</span>
-        <h2>Past events</h2>
-        <p>Photos from community gatherings will be shared in our <a href="/news/gallery.html">gallery</a>.</p>
       </div>
     </section>
   </main>
 
   <div data-include="footer"></div>
   <script type="module" src="/assets/js/main.js"></script>
+  <script type="module">
+    import { initEvents } from "/assets/js/events.js";
+    initEvents();
+  </script>
 </body>
 </html>
