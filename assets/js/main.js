@@ -10,9 +10,18 @@ import { initA11yToolbar } from "./a11y-toolbar.js";
 import { initPrayerTimes } from "./prayer-times.js";
 import { initForms } from "./forms.js";
 
+// Site root path, derived from this file's location (<root>/assets/js/main.js):
+// "/" on the production domain, "/virginmarymsoque/" on GitHub Pages.
+const ROOT = new URL("../../", import.meta.url).pathname;
+
+// Partials are written with root-absolute links ("/about/"); point them at ROOT.
+function rootify(html) {
+  return html.replace(/(\s(?:href|src)=")\/(?!\/)/g, `$1${ROOT}`);
+}
+
 /**
  * Fetch and inject HTML partials into elements with `data-include="<name>"`.
- * Partials live at /partials/<name>.html
+ * Partials live at <root>/partials/<name>.html
  */
 async function includePartials() {
   const hosts = document.querySelectorAll("[data-include]");
@@ -21,13 +30,13 @@ async function includePartials() {
     const name = host.getAttribute("data-include");
     if (!name) return;
     work.push(
-      fetch(`/partials/${name}.html`, { cache: "no-cache" })
+      fetch(`${ROOT}partials/${name}.html`, { cache: "no-cache" })
         .then((res) => {
           if (!res.ok) throw new Error(`Partial ${name} failed (${res.status})`);
           return res.text();
         })
         .then((html) => {
-          host.innerHTML = html;
+          host.innerHTML = rootify(html);
         })
         .catch((err) => {
           console.warn(err);
@@ -87,14 +96,12 @@ function initCurrentYear() {
 }
 
 function highlightCurrentNav() {
-  const path = window.location.pathname.replace(/\/index\.html$/, "/");
+  // Compare without "index.html"/".html" so clean URLs (/news/events) match too.
+  const norm = (p) => p.replace(/index\.html$/, "").replace(/\.html$/, "");
+  const path = norm(window.location.pathname);
   document.querySelectorAll(".site-nav__link").forEach((link) => {
-    const href = link.getAttribute("href") || "";
-    const normalised = href.endsWith("/") ? href : href;
-    if (
-      (normalised !== "/" && path.startsWith(normalised)) ||
-      (normalised === "/" && path === "/")
-    ) {
+    const target = norm(new URL(link.href).pathname);
+    if (target !== ROOT && path.startsWith(target)) {
       link.setAttribute("aria-current", "page");
     }
   });

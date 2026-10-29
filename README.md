@@ -73,6 +73,13 @@ python -m http.server 8000
 (The `/api/prayer` function only runs on Vercel; locally the site falls back to
 the bundled dataset automatically.)
 
+Links inside pages are **relative** (`../assets/...`, `../about/`), so the site
+works both at a domain root (Vercel) and in a sub-folder — e.g. the GitHub Pages
+preview at <https://4arhan.github.io/virginmarymsoque/>. Keep new page links
+relative. The shared `partials/` files may use root links (`/about/`); `main.js`
+rewrites them to the site root when it loads them. `404.html` keeps root links on
+purpose, because Vercel serves it at any URL depth.
+
 ## Deploy
 
 ```

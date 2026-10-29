@@ -3,7 +3,7 @@
 // without touching markup. Each event may carry tickets: {platform, url}
 // (SalamTix, Humanitix, etc.) and a "Get tickets" button renders automatically.
 
-const DATA_URL = "/assets/data/events.json";
+const DATA_URL = new URL("../data/events.json", import.meta.url);
 const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
 function esc(s) {

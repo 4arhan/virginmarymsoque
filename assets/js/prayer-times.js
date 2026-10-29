@@ -16,7 +16,7 @@
 import { YEARLY_TIMES } from "./times-data.js";
 
 const TZ = "Australia/Melbourne";
-const API_URL = "/api/prayer";
+const API_URL = new URL("../../api/prayer", import.meta.url);
 
 const IQAMA_FIXED = { Fajr: "06:30", Dhuhr: "12:45", Asr: "15:30", Isha: "19:30" };
 const IQAMA_OFFSET = { Maghrib: 5 }; // minutes after adhan
