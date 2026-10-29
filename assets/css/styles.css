@@ -42,8 +42,9 @@
   --color-ondark-muted: rgba(244, 239, 227, 0.72);
 
   /* Typography */
-  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Amiri follows each Latin face so honorifics such as ﷺ render in every font. */
+  --font-display: "Cormorant Garamond", "Amiri", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", "Amiri", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-arabic: "Amiri", "Traditional Arabic", serif;
 
   /* Fluid type scale */
