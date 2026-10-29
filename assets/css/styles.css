@@ -4367,6 +4367,583 @@ a.info-card:hover {
   }
 }
 
+/* ---------- Donate ---------- */
+
+/* Small uppercase label */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--color-primary-050);
+  color: var(--color-primary-700);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tag--urgent {
+  background: #fbe7e4;
+  color: #9b2c1f;
+}
+
+.appeal-urgent .tag--urgent {
+  background: #b3261e;
+  color: #fff;
+}
+
+/* Urgent appeal banner: a keffiyeh-style net pattern, topped with a thin band in flag colours */
+.appeal-urgent {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(40rem 22rem at 100% 0%, rgba(204, 177, 90, 0.16), transparent 60%),
+    linear-gradient(150deg, #0c2216, var(--color-primary-950) 60%, var(--color-primary-800));
+  color: var(--color-ondark);
+  box-shadow: var(--shadow-lg);
+}
+
+.appeal-urgent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(244, 239, 227, 0.08) 0 1px, transparent 1px 15px),
+    repeating-linear-gradient(-45deg, rgba(244, 239, 227, 0.08) 0 1px, transparent 1px 15px);
+  -webkit-mask-image: linear-gradient(90deg, transparent 10%, #000 75%);
+  mask-image: linear-gradient(90deg, transparent 10%, #000 75%);
+}
+
+.appeal-urgent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #b3261e 0 14%, #111 14% 43%, #f4efe3 43% 71%, #1b8a4b 71% 100%);
+}
+
+@media (min-width: 56em) {
+  .appeal-urgent {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    padding: var(--space-6) var(--space-5);
+  }
+}
+
+.appeal-urgent h2 {
+  margin-top: var(--space-3);
+  font-size: var(--fs-step-4);
+  color: var(--color-ondark);
+}
+
+.appeal-urgent p {
+  max-width: 38rem;
+  margin-top: var(--space-3);
+  color: var(--color-ondark-muted);
+}
+
+.appeal-urgent__body > p:first-of-type {
+  font-size: var(--fs-step-1);
+  font-weight: 300;
+  color: var(--color-ondark);
+}
+
+.appeal-urgent__note {
+  font-size: 0.88rem;
+}
+
+.appeal-urgent a:not(.btn):not(.appeal-urgent__amount) {
+  color: var(--color-accent-300);
+}
+
+.appeal-urgent__amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-4);
+}
+
+.appeal-urgent__amount {
+  min-width: 4.6rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(226, 206, 141, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-ondark);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.appeal-urgent__amount:hover {
+  border-color: var(--color-accent-300);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-accent-200);
+  transform: translateY(-2px);
+}
+
+.appeal-urgent .hero__actions {
+  margin-top: var(--space-4);
+}
+
+.appeal-urgent__art {
+  justify-self: center;
+  width: min(100%, 19rem);
+  color: var(--color-accent-300);
+}
+
+.appeal-urgent__art svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+@media (max-width: 55.99em) {
+  .appeal-urgent__art {
+    display: none;
+  }
+}
+
+/* Donation form: appeal cards beside a sticky panel */
+.donate {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+@media (min-width: 62em) {
+  .donate {
+    grid-template-columns: minmax(0, 1fr) 23rem;
+  }
+}
+
+.appeal-picker {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.appeal-option {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out), transform var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+}
+
+.appeal-option--featured {
+  grid-column: 1 / -1;
+}
+
+.appeal-option:hover {
+  border-color: var(--color-line-gold);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.appeal-option input,
+.segmented input,
+.amount-option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.appeal-option:has(input:checked) {
+  border-color: var(--color-accent-500);
+  background: linear-gradient(180deg, var(--color-surface), var(--color-accent-100));
+  box-shadow: 0 0 0 1px var(--color-accent-500), var(--shadow-md);
+}
+
+.appeal-option:has(input:focus-visible) {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 3px;
+}
+
+.appeal-option__icon {
+  display: grid;
+  place-items: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 0.85rem;
+  background: linear-gradient(150deg, var(--color-primary-800), var(--color-primary-600));
+  color: var(--color-accent-300);
+  box-shadow: inset 0 0 0 1px rgba(226, 206, 141, 0.25);
+}
+
+.appeal-option__icon .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.appeal-option__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.6rem;
+}
+
+.appeal-option__name {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-primary-900);
+}
+
+.appeal-option__text {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+}
+
+.appeal-option__check {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1.5px solid var(--color-line);
+  border-radius: 50%;
+  color: transparent;
+  transition: background-color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+
+.appeal-option__check .icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  stroke-width: 2.4;
+}
+
+.appeal-option:has(input:checked) .appeal-option__check {
+  border-color: var(--color-primary-700);
+  background: var(--color-primary-700);
+  color: var(--color-accent-300);
+}
+
+.donate-panel {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-line-gold);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 62em) {
+  .donate-panel {
+    position: sticky;
+    top: calc(var(--header-h) + 1.25rem);
+  }
+}
+
+.donate-step {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.donate-step__label {
+  margin-bottom: 0.6rem;
+  padding: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+/* One-off / monthly switch */
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.25rem;
+  border: 1px solid var(--color-primary-100);
+  border-radius: 999px;
+  background: var(--color-primary-050);
+}
+
+.segmented label {
+  position: relative;
+  cursor: pointer;
+}
+
+.segmented span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary-700);
+  transition: background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.segmented .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.segmented input:checked + span {
+  background: var(--color-primary-800);
+  color: var(--color-ondark);
+  box-shadow: var(--shadow-sm);
+}
+
+.segmented input:focus-visible + span,
+.amount-option input:focus-visible + span {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+/* Amount chips and the "other amount" box */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.amount-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.amount-option span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary-900);
+  transition: border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.amount-option:hover span {
+  border-color: var(--color-line-gold);
+}
+
+.amount-option input:checked + span {
+  border-color: var(--color-accent-500);
+  background: var(--color-accent-100);
+  box-shadow: 0 0 0 1px var(--color-accent-500);
+}
+
+.amount-custom {
+  display: block;
+  margin-top: 0.6rem;
+}
+
+.money-field {
+  position: relative;
+  display: block;
+}
+
+.money-field::before {
+  content: "$";
+  position: absolute;
+  top: 50%;
+  left: 0.95rem;
+  translate: 0 -50%;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+  pointer-events: none;
+}
+
+.money-field input {
+  min-height: 3rem;
+  padding-left: 1.85rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.amount-custom.is-active input {
+  border-color: var(--color-accent-500);
+  background: var(--color-accent-100);
+  box-shadow: 0 0 0 1px var(--color-accent-500);
+}
+
+.donate-summary {
+  padding: 0.85rem 1rem;
+  border: 1px dashed var(--color-line-gold);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-warm);
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+
+.donate-summary__label {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.donate-summary strong {
+  color: var(--color-primary-900);
+}
+
+.donate-submit {
+  width: 100%;
+  min-height: 3.4rem;
+  font-size: 1rem;
+}
+
+.donate-submit .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.donate-submit[aria-busy="true"] {
+  cursor: progress;
+  opacity: 0.85;
+}
+
+.donate-notice {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-line-gold);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-100);
+  font-size: 0.88rem;
+  color: var(--color-ink-soft);
+}
+
+.donate-notice--error {
+  border-color: #f0b8b0;
+  background: #fdecea;
+  color: #7a1f15;
+}
+
+.donate-notice a {
+  font-weight: 600;
+}
+
+.donate-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+.donate-trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.donate-trust .icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--color-primary-600);
+}
+
+/* Zakat calculator */
+.zakat-calc {
+  display: grid;
+  gap: 0.85rem;
+  padding: var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.zakat-calc h3 {
+  font-size: var(--fs-step-2);
+}
+
+.zakat-calc__row {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+}
+
+.zakat-calc__row--minus > span:first-child {
+  color: #8a3426;
+}
+
+.zakat-calc__result {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(150deg, var(--color-primary-900), var(--color-primary-700));
+  color: var(--color-ondark-muted);
+  font-size: 0.9rem;
+}
+
+.zakat-calc__result strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--color-accent-300);
+}
+
+.zakat-calc__note {
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--color-ondark-muted);
+}
+
+.zakat-calc .btn {
+  width: 100%;
+}
+
+.zakat-calc .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
 /* ---------- Phone layout overrides (after the components they adjust) ---------- */
 @media (max-width: 48em) {
   /* Card rows become a swipeable, snapping carousel that bleeds to the screen edges. */
@@ -4509,6 +5086,36 @@ a.info-card:hover {
 
   .stats--3 .stat:last-child:nth-child(odd) {
     grid-column: auto;
+  }
+
+  /* Donate: a compact cause list (only the chosen cause shows its description),
+     and the urgent appeal's quick amounts on one row */
+  .appeal-option {
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 0.95rem;
+  }
+
+  .appeal-option__text {
+    display: none;
+  }
+
+  .appeal-option:has(input:checked) .appeal-option__text {
+    display: block;
+  }
+
+  .appeal-urgent__amounts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .appeal-urgent__amount {
+    min-width: 0;
+    padding: 0.6rem 0.4rem;
+  }
+
+  .appeal-urgent .btn {
+    width: 100%;
   }
 
   /* Footer link lists run in two columns */

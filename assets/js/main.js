@@ -114,6 +114,9 @@ async function boot() {
   if (document.querySelector("[data-gallery]")) {
     import("./gallery.js").then((m) => m.initGallery());
   }
+  if (document.querySelector("[data-donate]")) {
+    import("./donate.js").then((m) => m.initDonate());
+  }
 }
 
 if (document.readyState === "loading") {

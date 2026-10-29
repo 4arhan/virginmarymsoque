@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank you &mdash; Virgin Mary Mosque</title>
+  <meta name="description" content="Thank you for your donation to Virgin Mary Mosque (Masjid Maryam).">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#06180e">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <div data-include="header"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero">
+      <img class="page-hero__bg" src="../assets/img/photos/hero-donate.webp" srcset="../assets/img/photos/hero-donate-sm.webp 800w, ../assets/img/photos/hero-donate.webp 1600w" sizes="100vw" width="1600" height="1200" alt="" fetchpriority="high">
+      <div class="container" data-reveal>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../">Home</a> &rsaquo;
+          <a href="../get-involved/donate.html">Donate</a> &rsaquo;
+          <span aria-current="page">Thank you</span>
+        </nav>
+        <h1>JazakAllahu khayran.</h1>
+        <p class="page-hero__lede">
+          Thank you for your donation. May Allah accept it from you and reward you with good.
+        </p>
+        <ul class="chips">
+          <li class="chip" data-thanks-appeal hidden><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-heart"/></svg> <span></span></li>
+        </ul>
+      </div>
+      <p class="photo-credit">Photo: Mufidul Tapadar / Unsplash</p>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="split" style="align-items: start;">
+          <div data-reveal>
+            <div class="section-head" style="margin-bottom: var(--space-4);">
+              <p class="section__eyebrow">What happens next</p>
+              <h2>Your donation is on its way</h2>
+            </div>
+            <ul class="feature-list">
+              <li>
+                <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-mail"/></svg></span>
+                <div><strong>Your receipt</strong><p>Stripe emails a receipt to the address you entered at checkout. For a receipt from the masjid, please contact the office.</p></div>
+              </li>
+              <li>
+                <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-repeat"/></svg></span>
+                <div><strong>Monthly donations</strong><p>To change or cancel a monthly donation, call <a href="tel:+61380870900">(03)&nbsp;8087&nbsp;0900</a> or email <a href="mailto:admin@virginmarymosque.org.au?subject=Monthly%20donation">admin@<wbr>virginmarymosque.org.au</a>.</p></div>
+              </li>
+              <li>
+                <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-heart"/></svg></span>
+                <div><strong>Share the appeal</strong><p>Invite family and friends to give too &mdash; every share helps.</p></div>
+              </li>
+            </ul>
+            <div class="chips" style="margin-top: var(--space-4);">
+              <a class="chip" href="https://wa.me/?text=Support%20Virgin%20Mary%20Mosque%20(Masjid%20Maryam)" target="_blank" rel="noreferrer" data-share="whatsapp">Share on WhatsApp</a>
+              <a class="chip" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvirgin-mary-mosque.vercel.app%2Fget-involved%2Fdonate.html" target="_blank" rel="noreferrer" data-share="facebook"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-facebook"/></svg> Share on Facebook</a>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="../">Back to home</a>
+              <a class="btn btn--ghost" href="../get-involved/donate.html">Give again</a>
+            </div>
+          </div>
+
+          <figure class="verse-card" data-reveal>
+            <blockquote>
+              <p class="verse-card__arabic" lang="ar" dir="rtl">رَبَّنَا تَقَبَّلْ مِنَّآ ۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلْعَلِيمُ</p>
+              <p class="verse-card__text">&ldquo;Our Lord, accept this from us. Indeed, You are the All-Hearing, the All-Knowing.&rdquo;</p>
+            </blockquote>
+            <figcaption class="verse-card__ref">Qur&rsquo;an 2:127</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+  <script type="module">
+    import { findAppeal } from "../assets/js/appeals.js";
+
+    // Name the appeal (only ids from the appeals list are shown) and point the
+    // share links at its donate page.
+    const appeal = findAppeal(new URLSearchParams(location.search).get("appeal"));
+    const donateUrl = new URL(`../get-involved/donate.html${appeal ? `?appeal=${appeal.id}` : ""}`, location.href).href;
+    if (appeal) {
+      const chip = document.querySelector("[data-thanks-appeal]");
+      chip.querySelector("span").textContent = appeal.name;
+      chip.hidden = false;
+    }
+    const message = `${appeal ? `${appeal.name} \u2014 ` : "Donate to "}Virgin Mary Mosque (Masjid Maryam): ${donateUrl}`;
+    document.querySelector('[data-share="whatsapp"]').href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    document.querySelector('[data-share="facebook"]').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(donateUrl)}`;
+  </script>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

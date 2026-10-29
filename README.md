@@ -79,6 +79,45 @@ phones). Plain `<ul>`/`<ol>` lists in page content get gold star bullets automat
 ICV's Islamophobia support. Relevant program pages end with a `support-band` linking
 their matching Ask ICV topics. If ICV renames a topic, update the links there.
 
+## Online donations (Stripe)
+
+`get-involved/donate.html` lets donors pick an appeal (Gaza Emergency Appeal, Global
+Emergencies, Masjid Fund, Zakat, Sadaqah Jariyah, Food & Welfare, Classes & Youth),
+one-off or monthly, and an amount, then sends them to **Stripe Checkout** through the
+Vercel function `api/donate.js`. Card details are entered on Stripe's page, never on
+this site. The page also has a zakat calculator. After paying, donors land on
+`get-involved/thank-you.html`.
+
+**Switching it on**
+
+1. Sign in to (or create) the mosque's Stripe account at <https://dashboard.stripe.com>.
+2. Developers → API keys → copy the **Secret key** (`sk_live_…`). To try it first,
+   switch on Test mode and copy the test key (`sk_test_…`).
+3. Vercel → project `virgin-mary-mosque` → Settings → Environment Variables → add
+   `STRIPE_SECRET_KEY` with that key, then redeploy (`vercel deploy --prod`).
+4. Stripe → Settings → Customer emails → turn on emails for **successful payments**,
+   so donors receive the receipt the page promises.
+5. Optional: set `SITE_URL` (e.g. `https://www.virginmarymosque.org.au`) if the site
+   moves to its own domain — it's where Stripe sends donors back to.
+
+In Test mode, pay with card `4242 4242 4242 4242`, any future expiry and any CVC.
+Until the key is set, the page still works: it says online giving opens soon and
+offers an email to the office pre-filled with the donor's choice.
+
+**Seeing donations by appeal.** Every payment carries the appeal in its metadata
+(`appeal`: `gaza`, `zakat`, …) and as its product name. One-off gifts are under
+Payments, monthly gifts under Subscriptions (cancel one there if a donor asks). An
+optional "On behalf of" field at checkout records gifts made for someone else.
+
+**Adding or changing an appeal.** Edit `assets/js/appeals.js` (the server only accepts
+appeals listed there) *and* the matching card in the `appeal-picker` on
+`donate.html`. The appeal marked `featured: true` is selected by default. Minimum and
+maximum amounts and the preset amounts are set at the top of `appeals.js`.
+
+Before launch, confirm the appeal wording with the masjid — in particular how the
+Gaza and Global Emergencies appeals are distributed — and check whether Stripe
+offers the mosque discounted pricing as a registered charity.
+
 ## Icons & share preview
 
 `assets/img/favicon.svg` (browser tab), `apple-touch-icon.png` and `icon-*.png`
