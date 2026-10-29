@@ -30,66 +30,109 @@
     </section>
 
     <section class="section">
-      <div class="container-narrow stack-lg">
-        <div data-reveal>
+      <div class="container">
+        <div class="section-head" data-reveal>
           <p class="section__eyebrow">The foundations</p>
           <h2>What Muslims believe</h2>
-          <p style="margin-top: var(--space-2);">
+          <p>
             Islam means willing submission to Allah &mdash; the one God who created everything
             and everyone. Muslim belief rests on six articles of faith:
           </p>
-          <ol>
-            <li>Belief in <strong>Allah</strong> &mdash; one God, the creator, uncreated, without partners.</li>
-            <li>Belief in His <strong>angels</strong>.</li>
-            <li>Belief in His <strong>books</strong> &mdash; the Qur&rsquo;an, and earlier scriptures including the Torah, Psalms and Gospel.</li>
-            <li>Belief in His <strong>messengers</strong> &mdash; including Nuh, Ibrahim, Musa, Dawud, &lsquo;Isa and Muhammad (peace be upon them all).</li>
-            <li>Belief in the <strong>Day of Judgement</strong>.</li>
-            <li>Belief in divine <strong>decree</strong> &mdash; nothing happens outside Allah&rsquo;s knowledge and will.</li>
-          </ol>
         </div>
-
-        <div data-reveal>
-          <p class="section__eyebrow">The practice</p>
-          <h2>What Muslims do</h2>
-          <p style="margin-top: var(--space-2);">Islam&rsquo;s five pillars are the everyday framework of Muslim practice:</p>
-          <ol>
-            <li><strong>Shahada</strong> &mdash; bearing witness that there is no god but Allah, and that Muhammad <span aria-hidden="true">&#65018;</span> is His messenger.</li>
-            <li><strong>Salah</strong> &mdash; the five daily prayers.</li>
-            <li><strong>Zakat</strong> &mdash; an annual charitable contribution, calculated on certain wealth.</li>
-            <li><strong>Sawm</strong> &mdash; fasting from dawn to sunset in the month of Ramadan.</li>
-            <li><strong>Hajj</strong> &mdash; the pilgrimage to Makkah, once in a lifetime for those who are able.</li>
-          </ol>
-          <div class="callout" style="margin-top: var(--space-4);">
-            <p lang="ar" dir="rtl" class="arabic" style="font-size: var(--fs-step-2); line-height: 2;">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّٰهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّٰهِ</p>
-            <p style="margin-top: var(--space-2); color: var(--color-ink-muted); font-size: var(--fs-step--1);">
-              The Shahada: &ldquo;I bear witness that there is no god but Allah, and I bear
-              witness that Muhammad is the Messenger of Allah.&rdquo;
-            </p>
-          </div>
-        </div>
+        <ol class="steps" style="grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));" data-reveal>
+          <li class="step">
+            <h3 class="step__title">Allah</h3>
+            <p>Belief in Allah &mdash; one God, the creator, uncreated, without partners.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Angels</h3>
+            <p>Belief in His angels.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Books</h3>
+            <p>Belief in His books &mdash; the Qur&rsquo;an, and earlier scriptures including the Torah, Psalms and Gospel.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Messengers</h3>
+            <p>Belief in His messengers &mdash; including Nuh, Ibrahim, Musa, Dawud, &lsquo;Isa and Muhammad (peace be upon them all).</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">The Day of Judgement</h3>
+            <p>Belief in the Day of Judgement.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Divine decree</h3>
+            <p>Belief in divine decree &mdash; nothing happens outside Allah&rsquo;s knowledge and will.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
     <section class="section section--sunken">
       <div class="container">
-        <div data-reveal>
+        <div class="split" style="align-items: start;">
+          <div data-reveal>
+            <div class="section-head" style="margin-bottom: var(--space-4);">
+              <p class="section__eyebrow">The practice</p>
+              <h2>What Muslims do</h2>
+              <p>Islam&rsquo;s five pillars are the everyday framework of Muslim practice:</p>
+            </div>
+            <ol class="steps">
+              <li class="step">
+                <h3 class="step__title">Shahada</h3>
+                <p>Bearing witness that there is no god but Allah, and that Muhammad <span aria-hidden="true">&#65018;</span> is His messenger.</p>
+              </li>
+              <li class="step">
+                <h3 class="step__title">Salah</h3>
+                <p>The five daily prayers.</p>
+              </li>
+              <li class="step">
+                <h3 class="step__title">Zakat</h3>
+                <p>An annual charitable contribution, calculated on certain wealth.</p>
+              </li>
+              <li class="step">
+                <h3 class="step__title">Sawm</h3>
+                <p>Fasting from dawn to sunset in the month of Ramadan.</p>
+              </li>
+              <li class="step">
+                <h3 class="step__title">Hajj</h3>
+                <p>The pilgrimage to Makkah, once in a lifetime for those who are able.</p>
+              </li>
+            </ol>
+          </div>
+          <figure class="verse-card" data-reveal>
+            <blockquote>
+              <p class="verse-card__arabic" lang="ar" dir="rtl">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّٰهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّٰهِ</p>
+              <p class="verse-card__text">&ldquo;I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah.&rdquo;</p>
+            </blockquote>
+            <figcaption class="verse-card__ref">The Shahada</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
           <p class="section__eyebrow">Learn at your own pace</p>
           <h2>Free structured courses with IntroToIslam</h2>
-          <p style="margin-top: var(--space-3); max-width: 46rem; color: var(--color-ink-muted);">
+          <p>
             A page like this can only introduce Islam. For a proper, guided path we recommend
             our da&rsquo;wah partner <strong>IntroToIslam</strong> &mdash; an Australian team
             whose online courses are free, self-paced, and written for people starting from
             zero. They also run weekly classes in person and on Zoom.
           </p>
         </div>
-        <div class="grid grid--2" style="margin-top: var(--space-5);" data-reveal>
+        <div class="grid grid--2" data-reveal>
           <article class="card">
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-graduation"/></svg></span>
             <span class="card__eyebrow">Free &middot; self-paced</span>
             <h3>Foundation Course</h3>
             <p>The essentials of Islam from the ground up &mdash; belief, worship and the big questions &mdash; in clear, unhurried lessons.</p>
             <a class="card__cta" href="https://introtoislam.org/all-course/" rel="noreferrer" target="_blank">View the course &rarr;</a>
           </article>
           <article class="card">
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-book"/></svg></span>
             <span class="card__eyebrow">Free &middot; self-paced</span>
             <h3>The Life of Prophet Muhammad <span aria-hidden="true">&#65018;</span></h3>
             <p>Meet the man himself: the life, character and message of the final messenger, told from the sources.</p>
@@ -102,11 +145,13 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--sunken">
       <div class="container-narrow" data-reveal>
-        <p class="section__eyebrow">Honest answers</p>
-        <h2>Common questions</h2>
-        <div class="stack" style="margin-top: var(--space-4);">
+        <div class="section-head" style="margin-bottom: var(--space-4);">
+          <p class="section__eyebrow">Honest answers</p>
+          <h2>Common questions</h2>
+        </div>
+        <div>
           <details>
             <summary>Do I have to convert to come to the mosque?</summary>
             <p>No. You are welcome to visit, observe, and ask questions with no expectation of anything more. See our <a href="../interfaith/visiting.html">visiting guide</a>.</p>

@@ -25,7 +25,7 @@ const PRAYER_NAMES = ["Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"];
 const SALAH_NAMES = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
 
 // "Now" in Melbourne, regardless of the visitor's timezone.
-function melbourneNow() {
+function melbourneNow(date = new Date()) {
   const parts = new Intl.DateTimeFormat("en-AU", {
     timeZone: TZ,
     hour12: false,
@@ -33,7 +33,7 @@ function melbourneNow() {
     day: "2-digit",
     hour: "2-digit",
     minute: "2-digit",
-  }).formatToParts(new Date());
+  }).formatToParts(date);
   const p = {};
   for (const { type, value } of parts) p[type] = value;
   return {
@@ -86,15 +86,33 @@ function format12h(hhmm) {
   return `${h12}:${String(m).padStart(2, "0")} ${period}`;
 }
 
+// Next salah after `nowMinutes`; after Isha it is tomorrow's Fajr.
 function computeNext(adhan, nowMinutes) {
   for (const name of SALAH_NAMES) {
     const t = adhan[name];
-    if (!t) continue;
-    if (toMinutes(t) > nowMinutes) {
-      return { name, time: format12h(t) };
+    if (t && toMinutes(t) > nowMinutes) {
+      return { name, hhmm: t, minutes: toMinutes(t) - nowMinutes, tomorrow: false };
     }
   }
-  return { name: "Fajr (tomorrow)", time: format12h(adhan.Fajr) || "—" };
+  const tomorrow = timingsFor(melbourneNow(new Date(Date.now() + 86_400_000)).key) || adhan;
+  return {
+    name: "Fajr",
+    hhmm: tomorrow.Fajr,
+    minutes: 1440 - nowMinutes + toMinutes(tomorrow.Fajr),
+    tomorrow: true,
+  };
+}
+
+function formatDuration(minutes) {
+  if (minutes < 60) return `${minutes} min`;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m ? `${h}h ${m}m` : `${h}h`;
+}
+
+// "4:53 PM" -> "4:53" for tight spaces such as the mobile tab bar.
+function shortTime(hhmm) {
+  return format12h(hhmm).replace(/\s?[AP]M$/, "");
 }
 
 function melbourneDates() {
@@ -123,18 +141,34 @@ function melbourneDates() {
 // Live data from /api/prayer once it arrives; null until then.
 let live = null;
 
-function render(widget) {
+function todayState() {
   const now = melbourneNow();
-  let adhan;
-  let iqama;
   if (live && live.date === now.key) {
-    adhan = live.adhan;
-    iqama = computeIqamaTimes(adhan, live.iqama.fixed, live.iqama.offsetMinutes);
-  } else {
-    adhan = timingsFor(now.key);
-    if (!adhan) return false;
-    iqama = computeIqamaTimes(adhan);
+    const adhan = live.adhan;
+    return { now, adhan, iqama: computeIqamaTimes(adhan, live.iqama.fixed, live.iqama.offsetMinutes) };
   }
+  const adhan = timingsFor(now.key);
+  if (!adhan) return null;
+  return { now, adhan, iqama: computeIqamaTimes(adhan) };
+}
+
+// Fill every next-prayer hook on the page (top bar, mobile menu, tab bar).
+function renderNextPrayer() {
+  const state = todayState();
+  if (!state) return;
+  const next = computeNext(state.adhan, state.now.minutes);
+  const set = (attr, text) => document.querySelectorAll(`[${attr}]`).forEach((el) => { el.textContent = text; });
+  set("data-next-prayer-name", next.name);
+  set("data-next-prayer-time", format12h(next.hhmm));
+  set("data-next-prayer-in", next.tomorrow ? "tomorrow" : `in ${formatDuration(next.minutes)}`);
+  set("data-next-prayer-short", `${next.name} ${shortTime(next.hhmm)}`);
+  document.querySelectorAll("[data-next-prayer]").forEach((el) => { el.hidden = false; });
+}
+
+function render(widget) {
+  const state = todayState();
+  if (!state) return false;
+  const { now, adhan, iqama } = state;
   const { gregorian, hijri } = melbourneDates();
 
   const dateEl = widget.querySelector("[data-prayer-date]");
@@ -151,7 +185,10 @@ function render(widget) {
 
   const next = computeNext(adhan, now.minutes);
   const nextEl = widget.querySelector("[data-prayer-next-time]");
-  if (nextEl) nextEl.textContent = `${next.name} · ${next.time}`;
+  if (nextEl) nextEl.textContent = `${next.name}${next.tomorrow ? " (tomorrow)" : ""} · ${format12h(next.hhmm)}`;
+  widget.querySelectorAll("[data-prayer]").forEach((row) => {
+    row.classList.toggle("is-next", !next.tomorrow && row.dataset.prayer === next.name);
+  });
   return true;
 }
 
@@ -163,6 +200,7 @@ async function syncLive(widget) {
     if (data && data.adhan && data.iqama) {
       live = data;
       render(widget);
+      renderNextPrayer();
     }
   } catch {
     /* offline or local preview — bundled data stands */
@@ -170,6 +208,9 @@ async function syncLive(widget) {
 }
 
 export function initPrayerTimes() {
+  renderNextPrayer();
+  setInterval(renderNextPrayer, 30_000);
+
   const widget = document.querySelector("[data-prayer-widget]");
   if (!widget) return;
 

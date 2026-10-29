@@ -32,62 +32,112 @@
     </section>
 
     <section class="section">
-      <div class="container">
+      <div class="container split" style="align-items: start;">
         <div data-reveal>
-          <p class="section__eyebrow">Pastoral care</p>
-          <h2>When to reach out</h2>
-        </div>
-        <div class="grid grid--2" style="margin-top: var(--space-5);" data-reveal>
-          <div class="stack">
+          <div class="section-head" style="margin-bottom: var(--space-4);">
+            <p class="section__eyebrow">Pastoral care</p>
+            <h2>When to reach out</h2>
             <p>People come to the Imam with all kinds of burdens, including:</p>
-            <ul>
-              <li>Struggles with faith, prayer or doubt</li>
-              <li>Family or marital tension</li>
-              <li>Grief and bereavement</li>
-              <li>Anxiety, depression, or low mood</li>
-              <li>Substance use or gambling</li>
-              <li>Family violence (see below)</li>
-              <li>Identity, belonging, and life transitions</li>
-            </ul>
-            <p style="color: var(--color-ink-muted);">
-              Conversations are confidential. Where specialist care is the right step,
-              we will help you find a clinical psychologist or GP.
-            </p>
           </div>
-          <div class="stack">
+          <ul class="feature-list" style="grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));">
+            <li>
+              <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-crescent"/></svg></span>
+              <span><strong>Struggles with faith, prayer or doubt</strong></span>
+            </li>
+            <li>
+              <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-rings"/></svg></span>
+              <span><strong>Family or marital tension</strong></span>
+            </li>
+            <li>
+              <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-lantern"/></svg></span>
+              <span><strong>Grief and bereavement</strong></span>
+            </li>
+            <li>
+              <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-heart"/></svg></span>
+              <span><strong>Anxiety, depression, or low mood</strong></span>
+            </li>
+            <li>
+              <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-compass"/></svg></span>
+              <span><strong>Substance use or gambling</strong></span>
+            </li>
+            <li>
+              <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-info"/></svg></span>
+              <span><strong>Family violence</strong> (see below)</span>
+            </li>
+            <li>
+              <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-sprout"/></svg></span>
+              <span><strong>Identity, belonging, and life transitions</strong></span>
+            </li>
+          </ul>
+          <p style="margin-top: var(--space-4); color: var(--color-ink-muted);">
+            Conversations are confidential. Where specialist care is the right step,
+            we will help you find a clinical psychologist or GP.
+          </p>
+        </div>
+        <div class="stack-lg" data-reveal>
+          <article class="card">
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-chat"/></svg></span>
             <h3>How to book</h3>
             <p>
               Request an appointment through the <a href="../contact.html">contact page</a>,
               or call <a href="tel:+61380870900">(03) 8087 0900</a>.
             </p>
-            <p><a class="btn btn--primary" href="../contact.html">Request an appointment</a></p>
-
-            <div class="callout">
-              <h3 style="margin-top: 0; font-size: var(--fs-step-1);">Hospital &amp; prison chaplaincy</h3>
-              <p style="margin-top: var(--space-2); color: var(--color-ink-muted);">
-                Contact us about hospital or prison chaplaincy referrals &mdash; families,
-                social workers and facility staff are all welcome to get in touch.
-              </p>
-            </div>
+            <p style="margin-top: var(--space-2);"><a class="btn btn--primary" href="../contact.html">Request an appointment</a></p>
+          </article>
+          <div class="callout">
+            <h3 style="margin-top: 0; font-size: var(--fs-step-1);">Hospital &amp; prison chaplaincy</h3>
+            <p style="margin-top: var(--space-2); color: var(--color-ink-muted);">
+              Contact us about hospital or prison chaplaincy referrals &mdash; families,
+              social workers and facility staff are all welcome to get in touch.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section section--sunken">
-      <div class="container-narrow" data-reveal>
-        <p class="section__eyebrow">Family violence</p>
-        <h2>If you are in danger</h2>
-        <p style="margin-top: var(--space-3);">
-          If you or someone you know is in immediate danger, call <strong>000</strong>.
-          For confidential support:
-        </p>
-        <ul>
-          <li><strong>Safe Steps</strong> (24/7, women): <a href="tel:1800015188">1800 015 188</a></li>
-          <li><strong>1800 RESPECT</strong> (24/7, all genders): <a href="tel:1800737732">1800 737 732</a></li>
-          <li><strong>Men&rsquo;s Referral Service</strong>: <a href="tel:1300766491">1300 766 491</a></li>
-        </ul>
-        <div class="callout callout--primary" style="margin-top: var(--space-4);">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section__eyebrow">Family violence</p>
+          <h2>If you are in danger</h2>
+          <p>
+            If you or someone you know is in immediate danger, call <strong>000</strong>.
+            For confidential support:
+          </p>
+        </div>
+        <div class="info-cards" data-reveal>
+          <a class="info-card" href="tel:000">
+            <span class="info-card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-phone"/></svg></span>
+            <span>
+              <span class="info-card__label">Immediate danger</span>
+              <span class="info-card__value">000</span>
+            </span>
+          </a>
+          <a class="info-card" href="tel:1800015188">
+            <span class="info-card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-phone"/></svg></span>
+            <span>
+              <span class="info-card__label">Safe Steps</span>
+              <span class="info-card__value">1800 015 188</span>
+              <span class="info-card__note">24/7, women</span>
+            </span>
+          </a>
+          <a class="info-card" href="tel:1800737732">
+            <span class="info-card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-phone"/></svg></span>
+            <span>
+              <span class="info-card__label">1800 RESPECT</span>
+              <span class="info-card__value">1800 737 732</span>
+              <span class="info-card__note">24/7, all genders</span>
+            </span>
+          </a>
+          <a class="info-card" href="tel:1300766491">
+            <span class="info-card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-phone"/></svg></span>
+            <span>
+              <span class="info-card__label">Men&rsquo;s Referral Service</span>
+              <span class="info-card__value">1300 766 491</span>
+            </span>
+          </a>
+        </div>
+        <div class="callout callout--primary" style="margin-top: var(--space-5);" data-reveal>
           <p style="margin: 0;">
             Our masjid takes family violence seriously. You can come to us and be believed,
             and we will help you find safety and support.

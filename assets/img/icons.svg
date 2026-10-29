@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Line icons, 24x24. Use: <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-mosque"/></svg>
+       Stroke and colour come from the .icon class (currentColor). -->
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 3.8l8.5 7.2"/><path d="M5.8 9.4V20h4.4v-5.5h3.6V20h4.4V9.4"/></symbol>
+  <symbol id="i-mosque" viewBox="0 0 24 24"><path d="M2.5 20.5h19"/><path d="M4 20.5v-6h13v6"/><path d="M5.2 14.5c0-3.4 2.4-5.6 5.3-7 2.9 1.4 5.3 3.6 5.3 7"/><path d="M10.5 7.5V5"/><path d="M10.5 3.4h.01"/><path d="M9 20.5v-2.4a1.5 1.5 0 0 1 3 0v2.4"/><path d="M19.5 20.5v-11"/><path d="M18.3 11.5h2.4"/><path d="M18.7 9.5 19.5 7l.8 2.5"/></symbol>
+  <symbol id="i-kaaba" viewBox="0 0 24 24"><path d="M12 3.5 4 7.2v9.6l8 3.7 8-3.7V7.2Z"/><path d="M4 7.2 12 11l8-3.8"/><path d="M12 11v9.5"/><path d="M4 10.4 12 14.2l8-3.8"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.8h17M8 3.2v3.6M16 3.2v3.6"/><path d="M8 13.5h.01M12 13.5h.01M16 13.5h.01M8 17h.01M12 17h.01"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.2s-7.8-4.6-7.8-10.4A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7.8 2.8c0 5.8-7.8 10.4-7.8 10.4Z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.4C10.2 5 7.7 4.4 4 4.4V18c3.7 0 6.2.6 8 2 1.8-1.4 4.3-2 8-2V4.4c-3.7 0-6.2.6-8 2Z"/><path d="M12 6.4V20"/></symbol>
+  <symbol id="i-graduation" viewBox="0 0 24 24"><path d="M2.8 9.2 12 5l9.2 4.2L12 13.4Z"/><path d="M6.4 11v4.4c1.6 1.6 3.6 2.4 5.6 2.4s4-.8 5.6-2.4V11"/><path d="M21.2 9.2v5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c0-3.4 2.7-6 6-6s6 2.6 6 6"/><path d="M15.6 5.2a3 3 0 0 1 0 5.6"/><path d="M17.4 13.8c2 .7 3.6 2.8 3.6 5.7"/></symbol>
+  <symbol id="i-user-plus" viewBox="0 0 24 24"><circle cx="9.5" cy="8" r="3.2"/><path d="M3.5 19.5c0-3.4 2.7-6 6-6 1.4 0 2.6.4 3.6 1.2"/><path d="M18 13.5v6M15 16.5h6"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 20.5V12"/><path d="M12 12C12 8.2 9.3 5.6 5.2 5.6c0 3.9 2.7 6.4 6.8 6.4Z"/><path d="M12 14.5c0-3.3 2.4-5.6 6.4-5.6 0 3.4-2.5 5.6-6.4 5.6Z"/><path d="M8 20.5h8"/></symbol>
+  <symbol id="i-rings" viewBox="0 0 24 24"><circle cx="9" cy="14.5" r="5"/><circle cx="15" cy="14.5" r="5"/><path d="M10.2 6.3 11 4.8h2l.8 1.5L12 8.6Z"/></symbol>
+  <symbol id="i-lantern" viewBox="0 0 24 24"><path d="M12 2.8v1.8"/><path d="M9.2 4.6h5.6l1 2.6H8.2Z"/><rect x="7.8" y="7.2" width="8.4" height="10.3" rx="3"/><path d="M9.6 17.5h4.8l-.6 2.5h-3.6Z"/><path d="M12 10.2c1 1.1 1.1 2.4 0 3.5-1.1-1.1-1-2.4 0-3.5Z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 5h15A1.5 1.5 0 0 1 21 6.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17h-1A1.5 1.5 0 0 1 3 15.5v-9A1.5 1.5 0 0 1 4.5 5Z"/><path d="M8 9.5h8M8 12.8h5"/></symbol>
+  <symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><path d="M12 9.8C10.2 8 10.2 5.2 12 3.6c1.8 1.6 1.8 4.4 0 6.2Z"/><path d="M14.2 12c1.8-1.8 4.6-1.8 6.2 0-1.6 1.8-4.4 1.8-6.2 0Z"/><path d="M12 14.2c1.8 1.8 1.8 4.6 0 6.2-1.8-1.6-1.8-4.4 0-6.2Z"/><path d="M9.8 12C8 13.8 5.2 13.8 3.6 12 5.2 10.2 8 10.2 9.8 12Z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3.2l1.9 5.1 5.1 1.9-5.1 1.9-1.9 5.1-1.9-5.1L4 10.2l5.1-1.9Z"/><path d="M18.4 15.2l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7Z"/></symbol>
+  <symbol id="i-star8" viewBox="0 0 24 24"><path d="M12 3.2 20.8 12 12 20.8 3.2 12Z"/><path d="M5.8 5.8h12.4v12.4H5.8Z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+  <symbol id="i-crescent" viewBox="0 0 24 24"><path d="M19.5 14.6A8 8 0 1 1 10.2 4.2a6.4 6.4 0 0 0 9.3 10.4Z"/><path d="M17.2 4.2l.5 1.3 1.3.5-1.3.5-.5 1.3-.5-1.3-1.3-.5 1.3-.5Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.6-6.1-6.6-11.4a6.6 6.6 0 0 1 13.2 0C18.6 14.9 12 21 12 21Z"/><circle cx="12" cy="9.6" r="2.4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.2 3.8h3l1.6 4.1-2 1.4a11.5 11.5 0 0 0 5.9 5.9l1.4-2 4.1 1.6v3a1.6 1.6 0 0 1-1.6 1.6C10.6 19.4 4.6 13.4 4.6 5.4a1.6 1.6 0 0 1 1.6-1.6Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.2" y="5.2" width="17.6" height="13.6" rx="2.2"/><path d="m3.8 6.6 8.2 6.4 8.2-6.4"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M6 20.5V10a6 6 0 0 1 12 0v10.5"/><path d="M3.5 20.5h17M14.2 14h.01"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="m15.6 8.4-2.1 5.1-5.1 2.1 2.1-5.1Z"/></symbol>
+  <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6M12 16.8h.01"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.2M12 7.8h.01"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.6 11a6.4 6.4 0 0 0 12.8 0M12 17.4V21M8.6 21h6.8"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3.2" y="4.2" width="17.6" height="15.6" rx="2.2"/><circle cx="8.6" cy="9.4" r="1.8"/><path d="m20.8 15.5-5-5-9.6 9.3"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3.2" y="5" width="17.6" height="14" rx="2.2"/><circle cx="9" cy="11" r="2"/><path d="M5.8 16.2c.6-1.5 1.8-2.3 3.2-2.3s2.6.8 3.2 2.3M14.5 10h3.5M14.5 13.2h3.5"/></symbol>
+  <symbol id="i-access" viewBox="0 0 24 24"><circle cx="12" cy="4.6" r="1.6"/><path d="M5 8.4l7 1.6 7-1.6M12 10v4.2M12 14.2l-3 6.3M12 14.2l3 6.3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M19.5 4.5 11 13M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19.5v-15M6 10.5l6-6 6 6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9.5 6 6 6-6"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M15.12 5.32H17V2.14A26.1 26.1 0 0 0 14.26 2c-2.72 0-4.58 1.66-4.58 4.7v2.62H6.61v3.56h3.07V22h3.68v-9.12h3.06l.46-3.56h-3.52V7.05c0-1.03.28-1.73 1.76-1.73Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></symbol>
+</svg>

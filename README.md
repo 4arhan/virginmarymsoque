@@ -47,6 +47,29 @@ SalamTix, Humanitix, or any platform.
   [`assets/img/photos/CREDITS.md`](assets/img/photos/CREDITS.md) for every slot, its
   size, and the credit to update.
 
+## Navigation
+
+The header, menus and phone tab bar live in `partials/header.html` (behaviour in
+`assets/js/nav.js`). To add a page to the menu, add a `site-nav__sublink` item to the
+right dropdown — it appears in the desktop dropdown and in the phone menu's accordion
+automatically. The top bar, the phone menu card and the tab bar's centre button show
+the next prayer live (from `prayer-times.js`; any element with `data-next-prayer-name`,
+`-time`, `-in` or `-short` is filled in).
+
+## Icons & components
+
+Icons are one sprite, `assets/img/icons.svg`:
+
+```html
+<svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-mosque"/></svg>
+```
+
+Building blocks in `styles.css` (search for the class): `section-head`, `card` with
+`card__icon`, `photo-grid` + `photo-card`, `stats`/`stat`, `steps`/`step`,
+`info-cards`/`info-card`, `media-frame` (`--arch`), `verse-card`, `feature-list`,
+`chips`/`chip`, `callout`, and `scroller` (turns a card grid into a swipeable row on
+phones). Plain `<ul>`/`<ol>` lists in page content get gold star bullets automatically.
+
 ## Updating
 
 | What | Where |

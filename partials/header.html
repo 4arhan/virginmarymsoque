@@ -1,64 +1,181 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 <div class="topbar">
   <div class="topbar__inner">
-    <p class="topbar__item">
+    <p class="topbar__item topbar__item--next" data-next-prayer hidden>
+      <span class="topbar__pulse" aria-hidden="true"></span>
+      <span class="topbar__label">Next prayer</span>
+      <strong data-next-prayer-name></strong>
+      <span data-next-prayer-time></span>
+      <span class="topbar__in" data-next-prayer-in></span>
+    </p>
+    <p class="topbar__item topbar__item--jumuah">
       <span class="topbar__label">Jumu&rsquo;ah</span>
       12:15 &middot; 1:15 &middot; 2:15 PM
     </p>
     <p class="topbar__item topbar__item--address">
-      <svg class="topbar__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-pin"/></svg>
       <a href="https://www.google.com/maps/search/?api=1&amp;query=Virgin+Mary+Mosque+143+Hogans+Rd+Hoppers+Crossing+VIC+3029" target="_blank" rel="noreferrer">143 Hogans Rd, Hoppers Crossing</a>
     </p>
-    <p class="topbar__item">
-      <svg class="topbar__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+    <p class="topbar__item topbar__item--phone">
+      <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-phone"/></svg>
       <a href="tel:+61380870900">(03) 8087 0900</a>
     </p>
     <ul class="topbar__social" aria-label="Social media">
-      <li>
-        <a href="https://facebook.com/virginmarymosque" target="_blank" rel="noreferrer" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M15.12 5.32H17V2.14A26.1 26.1 0 0 0 14.26 2c-2.72 0-4.58 1.66-4.58 4.7v2.62H6.61v3.56h3.07V22h3.68v-9.12h3.06l.46-3.56h-3.52V7.05c0-1.03.28-1.73 1.76-1.73Z"/></svg>
-        </a>
-      </li>
-      <li>
-        <a href="https://instagram.com/virginmarymosque" target="_blank" rel="noreferrer" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-        </a>
-      </li>
+      <li><a href="https://facebook.com/virginmarymosque" target="_blank" rel="noreferrer" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-facebook"/></svg></a></li>
+      <li><a href="https://instagram.com/virginmarymosque" target="_blank" rel="noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-instagram"/></svg></a></li>
     </ul>
   </div>
 </div>
+
 <header class="site-header" role="banner" data-site-header>
   <div class="site-header__inner">
     <a class="site-header__brand" href="/">
       <img class="site-header__logo" src="/assets/img/logo.png" width="300" height="159" alt="Virgin Mary Mosque — home">
     </a>
 
-    <button
-      class="site-header__toggle"
-      type="button"
-      aria-controls="primary-nav"
-      aria-expanded="false"
-      data-nav-toggle
-    >
-      <span aria-hidden="true">&#9776;</span>
-      <span class="visually-hidden">Toggle navigation</span>
-    </button>
+    <nav class="site-nav" id="primary-nav" aria-label="Primary" data-site-nav>
+      <div class="site-nav__panel">
 
-    <nav class="site-nav" id="primary-nav" aria-label="Primary">
-      <ul class="site-nav__list">
-        <li><a class="site-nav__link" href="/about/">About</a></li>
-        <li><a class="site-nav__link" href="/programs/">Programs</a></li>
-        <li><a class="site-nav__link" href="/news/events.html">Events</a></li>
-        <li><a class="site-nav__link" href="/news/gallery.html">Gallery</a></li>
-        <li><a class="site-nav__link" href="/knowledge/">Learn</a></li>
-        <li><a class="site-nav__link" href="/interfaith/visiting.html">Visit Us</a></li>
-        <li><a class="site-nav__link" href="/contact.html">Contact</a></li>
-      </ul>
+        <a class="nav-prayer" href="/programs/prayers.html" data-next-prayer hidden>
+          <span class="nav-prayer__icon" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons.svg#i-kaaba"/></svg></span>
+          <span class="nav-prayer__body">
+            <span class="nav-prayer__label">Next prayer &middot; <span data-next-prayer-in></span></span>
+            <span class="nav-prayer__name"><strong data-next-prayer-name></strong> <span data-next-prayer-time></span></span>
+            <span class="nav-prayer__jumuah">Jumu&rsquo;ah Fridays 12:15 &middot; 1:15 &middot; 2:15 PM</span>
+          </span>
+          <span class="nav-prayer__go" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></span>
+        </a>
+
+        <ul class="site-nav__list">
+          <li class="site-nav__item has-sub" style="--i: 1;">
+            <a class="site-nav__link" href="/about/">About</a>
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-sub-about">
+              <span class="visually-hidden">Show About pages</span>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-down"/></svg>
+            </button>
+            <div class="site-nav__sub" id="nav-sub-about">
+              <ul class="site-nav__sublist">
+                <li><a class="site-nav__sublink" href="/about/"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-mosque"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">About the masjid</span><span class="site-nav__subdesc">Serving Melbourne&rsquo;s west since 2006</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/about/why-maryam.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-star8"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Why &ldquo;Virgin Mary&rdquo;?</span><span class="site-nav__subdesc">The name our masjid carries</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/about/team.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-users"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Our team</span><span class="site-nav__subdesc">The people who serve His house</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/about/history.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-clock"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Our history</span><span class="site-nav__subdesc">A masjid raised by its community</span></span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="site-nav__item has-sub has-sub--wide" style="--i: 2;">
+            <a class="site-nav__link" href="/programs/">Programs</a>
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-sub-programs">
+              <span class="visually-hidden">Show Programs pages</span>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-down"/></svg>
+            </button>
+            <div class="site-nav__sub" id="nav-sub-programs">
+              <ul class="site-nav__sublist">
+                <li><a class="site-nav__sublink" href="/programs/prayers.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-kaaba"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Prayer times &amp; Jumu&rsquo;ah</span><span class="site-nav__subdesc">Five daily prayers, three Jumu&rsquo;ah</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/programs/classes.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-book"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Qur&rsquo;an &amp; classes</span><span class="site-nav__subdesc">Small groups for every age</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/programs/youth.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-sparkle"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Youth programs</span><span class="site-nav__subdesc">Iman, friendship and futures</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/programs/women.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-flower"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Women&rsquo;s programs</span><span class="site-nav__subdesc">Led by and for our sisters</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/programs/new-muslim.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-sprout"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">New-Muslim support</span><span class="site-nav__subdesc">You won&rsquo;t walk the road alone</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/programs/nikah.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-rings"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Nikah services</span><span class="site-nav__subdesc">Begin your marriage soundly</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/programs/janazah.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-lantern"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Janazah services</span><span class="site-nav__subdesc">With care, in the hardest hours</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/programs/counselling.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-chat"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Counselling</span><span class="site-nav__subdesc">Confidential talks with the Imam</span></span></a></li>
+              </ul>
+              <a class="site-nav__overview" href="/programs/">All programs &amp; services <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-arrow-right"/></svg></a>
+            </div>
+          </li>
+
+          <li class="site-nav__item" style="--i: 3;"><a class="site-nav__link" href="/news/events.html">Events</a></li>
+
+          <li class="site-nav__item has-sub" style="--i: 4;">
+            <a class="site-nav__link" href="/knowledge/">Learn</a>
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-sub-learn">
+              <span class="visually-hidden">Show Learn pages</span>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-down"/></svg>
+            </button>
+            <div class="site-nav__sub" id="nav-sub-learn">
+              <ul class="site-nav__sublist">
+                <li><a class="site-nav__sublink" href="/knowledge/"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-graduation"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Knowledge Hub</span><span class="site-nav__subdesc">Start your learning here</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/knowledge/new-to-islam.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-question"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Interested in Islam?</span><span class="site-nav__subdesc">What Muslims believe and do</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/interfaith/maryam-in-islam.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-crescent"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Maryam in Islam</span><span class="site-nav__subdesc">Her honour in the Qur&rsquo;an</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/interfaith/dialogue.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-chat"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Ask us about Islam</span><span class="site-nav__subdesc">Every question is welcome</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/knowledge/resources.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-book"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Resource library</span><span class="site-nav__subdesc">Guides for families &amp; teachers</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/knowledge/khutbah-archive.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-mic"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Khutbah archive</span><span class="site-nav__subdesc">Friday khutbahs in Arabic &amp; English</span></span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="site-nav__item" style="--i: 5;"><a class="site-nav__link" href="/news/gallery.html">Gallery</a></li>
+          <li class="site-nav__item" style="--i: 6;"><a class="site-nav__link" href="/interfaith/visiting.html">Visit Us</a></li>
+          <li class="site-nav__item" style="--i: 7;"><a class="site-nav__link" href="/contact.html">Contact</a></li>
+
+          <li class="site-nav__item has-sub site-nav__item--mobile" style="--i: 8;">
+            <a class="site-nav__link" href="/get-involved/">Get involved</a>
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-sub-involved">
+              <span class="visually-hidden">Show Get involved pages</span>
+              <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-chevron-down"/></svg>
+            </button>
+            <div class="site-nav__sub" id="nav-sub-involved">
+              <ul class="site-nav__sublist">
+                <li><a class="site-nav__sublink" href="/get-involved/donate.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-heart"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Donate</span><span class="site-nav__subdesc">Sadaqah that keeps the doors open</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/get-involved/volunteer.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-user-plus"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Volunteer</span><span class="site-nav__subdesc">Give a few hours for Allah</span></span></a></li>
+                <li><a class="site-nav__sublink" href="/get-involved/membership.html"><span class="site-nav__subicon"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-id"/></svg></span><span class="site-nav__subtext"><span class="site-nav__subtitle">Become a member</span><span class="site-nav__subdesc">A stake in the masjid&rsquo;s future</span></span></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nav-quick">
+          <a class="nav-quick__item" href="https://www.google.com/maps/search/?api=1&amp;query=Virgin+Mary+Mosque+143+Hogans+Rd+Hoppers+Crossing+VIC+3029" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-compass"/></svg><span>Directions</span></a>
+          <a class="nav-quick__item" href="tel:+61380870900"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-phone"/></svg><span>Call us</span></a>
+          <a class="nav-quick__item" href="mailto:admin@virginmarymosque.org.au"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-mail"/></svg><span>Email</span></a>
+          <button class="nav-quick__item" type="button" data-open-a11y><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-access"/></svg><span>Accessibility</span></button>
+        </div>
+
+        <div class="nav-foot">
+          <p class="nav-foot__bismillah" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+          <ul class="nav-foot__social" aria-label="Social media">
+            <li><a href="https://facebook.com/virginmarymosque" target="_blank" rel="noreferrer" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-facebook"/></svg></a></li>
+            <li><a href="https://instagram.com/virginmarymosque" target="_blank" rel="noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-instagram"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <div class="site-header__cta">
-      <a class="btn btn--ghost btn--sm" href="/get-involved/volunteer.html">Volunteer</a>
-      <a class="btn btn--accent btn--sm" href="/get-involved/donate.html">Donate</a>
+      <a class="btn btn--ghost btn--sm site-header__involved" href="/get-involved/">Get involved</a>
+      <a class="btn btn--accent btn--sm site-header__donate" href="/get-involved/donate.html">
+        <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-heart"/></svg>
+        Donate
+      </a>
     </div>
+
+    <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>
+      <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="nav-toggle__label">Menu</span>
+    </button>
   </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
 </header>
+
+<nav class="tabbar" aria-label="Quick links" data-tabbar>
+  <a class="tabbar__item" href="/" data-tab>
+    <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-home"/></svg>
+    <span>Home</span>
+  </a>
+  <a class="tabbar__item" href="/news/events.html" data-tab>
+    <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-calendar"/></svg>
+    <span>Events</span>
+  </a>
+  <a class="tabbar__item tabbar__item--prayer" href="/programs/prayers.html" data-tab>
+    <span class="tabbar__orb" aria-hidden="true"><svg class="icon"><use href="/assets/img/icons.svg#i-kaaba"/></svg></span>
+    <span><span class="visually-hidden">Prayer times, next: </span><span data-next-prayer-short>Prayer</span></span>
+  </a>
+  <a class="tabbar__item" href="/get-involved/donate.html" data-tab>
+    <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-heart"/></svg>
+    <span>Donate</span>
+  </a>
+  <button class="tabbar__item" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>
+    <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#i-menu"/></svg>
+    <span>Menu</span>
+  </button>
+</nav>

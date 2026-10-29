@@ -90,11 +90,11 @@
               <a class="btn btn--accent" href="./programs/prayers.html">Prayer times</a>
               <a class="btn btn--ghost" href="./news/events.html">Upcoming events</a>
             </div>
-            <div class="hero__meta">
-              <span>Est. 2006</span>
-              <span>143 Hogans Rd, Hoppers Crossing</span>
-              <span>Khutbahs in Arabic &amp; English</span>
-            </div>
+            <ul class="chips hero__chips">
+              <li class="chip"><svg class="icon" aria-hidden="true"><use href="./assets/img/icons.svg#i-clock"/></svg> Est. 2006</li>
+              <li class="chip"><svg class="icon" aria-hidden="true"><use href="./assets/img/icons.svg#i-pin"/></svg> 143 Hogans Rd, Hoppers Crossing</li>
+              <li class="chip"><svg class="icon" aria-hidden="true"><use href="./assets/img/icons.svg#i-mic"/></svg> Khutbahs in Arabic &amp; English</li>
+            </ul>
           </div>
           <div data-reveal>
             <div data-include="prayer-widget"></div>
@@ -129,7 +129,7 @@
       <div class="container">
         <p class="section__eyebrow" data-reveal>Worship &amp; community</p>
         <h2 data-reveal>How can we help you today?</h2>
-        <div class="grid grid--3" style="margin-top: var(--space-5);">
+        <div class="grid grid--3 scroller" style="margin-top: var(--space-5);">
           <article class="card card--media" data-reveal>
             <div class="card__media"><img src="./assets/img/photos/card-prayers.webp" width="800" height="532" alt="" loading="lazy" decoding="async"></div>
             <span class="card__eyebrow">Daily</span>
@@ -172,6 +172,22 @@
             <p>Youth activities, sisters&rsquo; programs and community gatherings through the year &mdash; announced on our socials.</p>
             <a class="card__cta" href="./programs/">All programs &rarr;</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- At a glance -->
+    <section class="section section--sunken">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <p class="section__eyebrow">At a glance</p>
+          <h2>A masjid for every day of the week</h2>
+        </div>
+        <div class="stats">
+          <div class="stat" data-reveal><span class="stat__value">2006</span><span class="stat__label">Serving the west since</span></div>
+          <div class="stat" data-reveal><span class="stat__value">5</span><span class="stat__label">Daily prayers in congregation</span></div>
+          <div class="stat" data-reveal><span class="stat__value">3</span><span class="stat__label">Jumu&rsquo;ah congregations</span></div>
+          <div class="stat" data-reveal><span class="stat__value">2</span><span class="stat__label">Khutbah languages: Arabic &amp; English</span></div>
         </div>
       </div>
     </section>

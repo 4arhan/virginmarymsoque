@@ -1,14 +1,13 @@
 // Main site script. Runs on every page.
 // Responsibilities:
 //  - Include shared partials (header, footer, prayer widget) via fetch
-//  - Nav toggle for mobile
-//  - Footer year
-//  - Highlight current page in nav
-//  - Kick off the a11y toolbar and (when present) prayer-times widget
+//  - Navigation (see nav.js), footer year, reveal-on-scroll
+//  - Kick off the a11y toolbar, prayer times, forms and (when present) the gallery
 
 import { initA11yToolbar } from "./a11y-toolbar.js";
 import { initPrayerTimes } from "./prayer-times.js";
 import { initForms } from "./forms.js";
+import { initNav } from "./nav.js";
 
 // Site root path, derived from this file's location (<root>/assets/js/main.js):
 // "/" on the production domain, "/virginmarymsoque/" on GitHub Pages.
@@ -20,8 +19,9 @@ function rootify(html) {
 }
 
 /**
- * Fetch and inject HTML partials into elements with `data-include="<name>"`.
- * Partials live at <root>/partials/<name>.html
+ * Fetch each `data-include="<name>"` partial from <root>/partials/<name>.html and
+ * put its markup in place of the placeholder element. Replacing (not filling) the
+ * placeholder keeps the header a direct child of <body>, so it can stay sticky.
  */
 async function includePartials() {
   const hosts = document.querySelectorAll("[data-include]");
@@ -36,7 +36,9 @@ async function includePartials() {
           return res.text();
         })
         .then((html) => {
-          host.innerHTML = rootify(html);
+          const tpl = document.createElement("template");
+          tpl.innerHTML = rootify(html);
+          host.replaceWith(tpl.content);
         })
         .catch((err) => {
           console.warn(err);
@@ -45,37 +47,6 @@ async function includePartials() {
     );
   });
   await Promise.allSettled(work);
-}
-
-function initNav() {
-  const toggle = document.querySelector("[data-nav-toggle]");
-  const nav = document.querySelector("#primary-nav");
-  if (!toggle || !nav) return;
-  toggle.addEventListener("click", () => {
-    const open = nav.getAttribute("data-open") === "true";
-    nav.setAttribute("data-open", String(!open));
-    toggle.setAttribute("aria-expanded", String(!open));
-  });
-}
-
-function initHeaderShadow() {
-  const header = document.querySelector("[data-site-header]");
-  if (!header) return;
-  let queued = false;
-  const update = () => {
-    header.classList.toggle("is-scrolled", window.scrollY > 40);
-    queued = false;
-  };
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (queued) return;
-      queued = true;
-      requestAnimationFrame(update);
-    },
-    { passive: true },
-  );
-  update();
 }
 
 function initHeroSlideshow() {
@@ -95,18 +66,6 @@ function initCurrentYear() {
   });
 }
 
-function highlightCurrentNav() {
-  // Compare without "index.html"/".html" so clean URLs (/news/events) match too.
-  const norm = (p) => p.replace(/index\.html$/, "").replace(/\.html$/, "");
-  const path = norm(window.location.pathname);
-  document.querySelectorAll(".site-nav__link").forEach((link) => {
-    const target = norm(new URL(link.href).pathname);
-    if (target !== ROOT && path.startsWith(target)) {
-      link.setAttribute("aria-current", "page");
-    }
-  });
-}
-
 function initReveal() {
   const els = document.querySelectorAll("[data-reveal]");
   if (!els.length) return;
@@ -114,12 +73,27 @@ function initReveal() {
     els.forEach((el) => el.classList.add("is-visible"));
     return;
   }
+  // Siblings that reveal together arrive one after another.
+  els.forEach((el) => {
+    const siblings = [...el.parentElement.children].filter((c) => c.hasAttribute("data-reveal"));
+    const i = siblings.indexOf(el);
+    if (i > 0) el.style.transitionDelay = `${Math.min(i, 6) * 70}ms`;
+  });
+  // Once revealed, drop the reveal styles so the element's own transitions
+  // (card hovers etc.) run without the stagger delay.
+  const settle = (el) => {
+    el.removeAttribute("data-reveal");
+    el.classList.remove("is-visible");
+    el.style.transitionDelay = "";
+  };
   const io = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
+          const el = entry.target;
+          el.classList.add("is-visible");
+          io.unobserve(el);
+          setTimeout(() => settle(el), 800 + (parseInt(el.style.transitionDelay, 10) || 0));
         }
       }
     },
@@ -130,11 +104,9 @@ function initReveal() {
 
 async function boot() {
   await includePartials();
-  initNav();
-  initHeaderShadow();
+  initNav(ROOT);
   initHeroSlideshow();
   initCurrentYear();
-  highlightCurrentNav();
   initReveal();
   initA11yToolbar();
   initPrayerTimes();
