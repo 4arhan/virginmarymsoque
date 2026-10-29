@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Virgin Mary Mosque (Masjid Maryam) &mdash; Hoppers Crossing, Melbourne</title>
   <meta name="description" content="Virgin Mary Mosque (Masjid Maryam), 143 Hogans Rd, Hoppers Crossing. Daily prayer times synced with the mosque display, Jumu'ah at 12:15, 1:15 &amp; 2:15 PM, Islamic classes, nikah, janazah and community services.">
-  <meta name="theme-color" content="#0a251e">
+  <meta name="theme-color" content="#06180e">
   <link rel="canonical" href="https://www.virginmarymosque.org.au/">
 
   <meta property="og:type" content="website">
@@ -18,6 +18,7 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/assets/img/photos/home-hero-1.webp" imagesrcset="/assets/img/photos/home-hero-1-sm.webp 960w, /assets/img/photos/home-hero-1.webp 1920w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap">
   <link rel="stylesheet" href="/assets/css/styles.css">
 
@@ -28,6 +29,7 @@
     "name": "Virgin Mary Mosque",
     "alternateName": "Masjid Maryam",
     "url": "https://www.virginmarymosque.org.au/",
+    "logo": "https://www.virginmarymosque.org.au/assets/img/logo.png",
     "telephone": "+61-3-8087-0900",
     "email": "admin@virginmarymosque.org.au",
     "foundingDate": "2006",
@@ -52,14 +54,33 @@
 
   <main id="main" tabindex="-1">
 
-    <!-- Hero -->
-    <section class="hero">
+    <!-- Hero: crossfading photos of mosques around the world -->
+    <section class="hero" aria-labelledby="hero-title" data-hero>
+      <div class="hero__media" aria-hidden="true">
+        <figure class="hero__slide" style="--i: 0; --focus: 52% 50%;">
+          <img src="/assets/img/photos/home-hero-1.webp" srcset="/assets/img/photos/home-hero-1-sm.webp 960w, /assets/img/photos/home-hero-1.webp 1920w" sizes="100vw" width="1920" height="1280" alt="" fetchpriority="high">
+          <figcaption class="hero__caption"><span><strong>Sheikh Zayed Grand Mosque</strong>, Abu Dhabi &middot; Photo: David Rodrigo</span></figcaption>
+        </figure>
+        <figure class="hero__slide" style="--i: 1; --focus: 50% 55%;">
+          <img src="/assets/img/photos/home-hero-2.webp" srcset="/assets/img/photos/home-hero-2-sm.webp 960w, /assets/img/photos/home-hero-2.webp 1920w" sizes="100vw" width="1920" height="1280" alt="" fetchpriority="low" decoding="async">
+          <figcaption class="hero__caption"><span><strong>Istanbul</strong>, T&uuml;rkiye &middot; Photo: adam hilles</span></figcaption>
+        </figure>
+        <figure class="hero__slide" style="--i: 2; --focus: 64% 55%;">
+          <img src="/assets/img/photos/home-hero-3.webp" srcset="/assets/img/photos/home-hero-3-sm.webp 960w, /assets/img/photos/home-hero-3.webp 1920w" sizes="100vw" width="1920" height="1280" alt="" fetchpriority="low" decoding="async">
+          <figcaption class="hero__caption"><span><strong>Masjid an-Nabawi</strong>, Madinah &middot; Photo: Sulthan Auliya</span></figcaption>
+        </figure>
+        <figure class="hero__slide" style="--i: 3; --focus: 50% 50%;">
+          <img src="/assets/img/photos/home-hero-4.webp" srcset="/assets/img/photos/home-hero-4-sm.webp 960w, /assets/img/photos/home-hero-4.webp 1920w" sizes="100vw" width="1920" height="1080" alt="" fetchpriority="low" decoding="async">
+          <figcaption class="hero__caption"><span><strong>Sultan Salahuddin Abdul Aziz Mosque</strong>, Shah Alam &middot; Photo: Firdouss Ross</span></figcaption>
+        </figure>
+      </div>
+
       <div class="container">
         <div class="hero__grid">
           <div data-reveal>
             <p class="hero__bismillah" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
             <p class="hero__eyebrow">Masjid Maryam &middot; Hoppers Crossing</p>
-            <h1>A house of Allah in Melbourne&rsquo;s <em>west</em>.</h1>
+            <h1 id="hero-title">A house of Allah in Melbourne&rsquo;s <em>west</em>.</h1>
             <p class="hero__lede">
               Virgin Mary Mosque has served the Muslims of Wyndham and beyond since 2006 &mdash;
               five daily prayers, three Jumu&rsquo;ah congregations, Qur&rsquo;an classes and
@@ -80,10 +101,15 @@
           </div>
         </div>
       </div>
+
+      <button class="hero__pause" type="button" aria-label="Pause background slideshow" aria-pressed="false" data-hero-pause>
+        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>
+      </button>
     </section>
 
-    <!-- Jumu'ah -->
-    <section class="section">
+    <!-- Jumu'ah: floats over the bottom edge of the hero -->
+    <section class="section section--overlap">
       <div class="container" data-reveal>
         <div class="jumuah-banner">
           <span class="jumuah-banner__label">Jumu&rsquo;ah every Friday</span>
@@ -99,42 +125,48 @@
     </section>
 
     <!-- Services -->
-    <section class="section section--sunken">
+    <section class="section">
       <div class="container">
         <p class="section__eyebrow" data-reveal>Worship &amp; community</p>
         <h2 data-reveal>How can we help you today?</h2>
         <div class="grid grid--3" style="margin-top: var(--space-5);">
-          <article class="card" data-reveal>
+          <article class="card card--media" data-reveal>
+            <div class="card__media"><img src="/assets/img/photos/card-prayers.webp" width="800" height="532" alt="" loading="lazy" decoding="async"></div>
             <span class="card__eyebrow">Daily</span>
             <h3>Five daily prayers</h3>
             <p>The masjid is open for the five daily congregational prayers, with a dedicated women&rsquo;s section.</p>
             <a class="card__cta" href="/programs/prayers.html">Today&rsquo;s times &rarr;</a>
           </article>
-          <article class="card" data-reveal>
+          <article class="card card--media" data-reveal>
+            <div class="card__media"><img src="/assets/img/photos/card-classes.webp" width="800" height="534" alt="" loading="lazy" decoding="async"></div>
             <span class="card__eyebrow">Learning</span>
             <h3>Qur&rsquo;an &amp; Islamic classes</h3>
             <p>Qur&rsquo;an recitation, Islamic studies and Arabic for children and adults. Contact the office for the current timetable.</p>
             <a class="card__cta" href="/programs/classes.html">About classes &rarr;</a>
           </article>
-          <article class="card" data-reveal>
+          <article class="card card--media" data-reveal>
+            <div class="card__media"><img src="/assets/img/photos/card-new-muslim.webp" width="800" height="601" alt="" loading="lazy" decoding="async"></div>
             <span class="card__eyebrow">Shahada &amp; support</span>
             <h3>New to Islam</h3>
             <p>Taking your shahada, or curious about the deen? We will walk beside you &mdash; and our partner IntroToIslam offers free structured courses.</p>
             <a class="card__cta" href="/knowledge/new-to-islam.html">Start here &rarr;</a>
           </article>
-          <article class="card" data-reveal>
+          <article class="card card--media" data-reveal>
+            <div class="card__media"><img src="/assets/img/photos/card-nikah.webp" width="800" height="532" alt="" loading="lazy" decoding="async"></div>
             <span class="card__eyebrow">Family</span>
             <h3>Nikah services</h3>
             <p>Islamic marriage ceremonies conducted at the masjid. Phone the office to make arrangements.</p>
             <a class="card__cta" href="/programs/nikah.html">Nikah &rarr;</a>
           </article>
-          <article class="card" data-reveal>
+          <article class="card card--media" data-reveal>
+            <div class="card__media"><img src="/assets/img/photos/card-janazah.webp" width="800" height="534" alt="" loading="lazy" decoding="async"></div>
             <span class="card__eyebrow">When loss comes</span>
             <h3>Janazah services</h3>
             <p>Ghusl, janazah salah and burial arrangements, handled with dignity and care. Call us and we will guide you through each step.</p>
             <a class="card__cta" href="/programs/janazah.html">Janazah &rarr;</a>
           </article>
-          <article class="card" data-reveal>
+          <article class="card card--media" data-reveal>
+            <div class="card__media"><img src="/assets/img/photos/card-community.webp" width="800" height="600" alt="" loading="lazy" decoding="async"></div>
             <span class="card__eyebrow">Youth &amp; sisters</span>
             <h3>Community programs</h3>
             <p>Youth activities, sisters&rsquo; programs and community gatherings through the year &mdash; announced on our socials.</p>
@@ -142,6 +174,19 @@
           </article>
         </div>
       </div>
+    </section>
+
+    <!-- Qur'an 72:18 -->
+    <section class="verse-band" aria-label="Qur'an, Surah al-Jinn 72:18">
+      <img class="verse-band__bg" src="/assets/img/photos/band-verse.webp" srcset="/assets/img/photos/band-verse-sm.webp 800w, /assets/img/photos/band-verse.webp 1600w" sizes="100vw" width="1600" height="995" alt="" loading="lazy" decoding="async">
+      <figure class="verse-band__quote container-narrow" data-reveal>
+        <blockquote>
+          <p class="verse-band__arabic" lang="ar" dir="rtl">وَأَنَّ الْمَسَاجِدَ لِلَّهِ فَلَا تَدْعُوا مَعَ اللَّهِ أَحَدًا</p>
+          <p class="verse-band__translation">&ldquo;And the mosques are for Allah, so do not invoke anyone along with Allah.&rdquo;</p>
+        </blockquote>
+        <figcaption class="verse-band__ref">Surah al-Jinn &middot; 72:18</figcaption>
+      </figure>
+      <p class="photo-credit">Sheikh Lotfollah Mosque, Isfahan &middot; Photo: Faruk Kaymak</p>
     </section>
 
     <!-- Named after Maryam -->
@@ -162,17 +207,60 @@
               <a class="btn btn--ghost" href="/about/">About the masjid</a>
             </div>
           </div>
-          <blockquote class="callout callout--primary" data-reveal style="font-family: var(--font-display); font-size: var(--fs-step-1); font-style: italic; line-height: 1.6;">
-            <p lang="ar" dir="rtl" class="arabic" style="font-size: 1.5em; line-height: 2; font-style: normal;">وَٱذْكُرْ فِى ٱلْكِتَـٰبِ مَرْيَمَ</p>
-            <p style="margin-top: var(--space-2);">&ldquo;And mention Maryam in the Book&hellip;&rdquo;</p>
-            <footer style="font-family: var(--font-body); font-size: var(--fs-step--1); font-style: normal; margin-top: var(--space-2); color: var(--color-ink-muted);">Qur&rsquo;an 19:16</footer>
-          </blockquote>
+          <figure class="arch-frame" data-reveal>
+            <img src="/assets/img/photos/maryam-arch.webp" width="1000" height="737" alt="A white marble mihrab framed by gold Qur&rsquo;anic calligraphy and blue floral tilework" loading="lazy" decoding="async">
+            <blockquote class="arch-frame__quote">
+              <span class="arabic" lang="ar" dir="rtl">وَٱذْكُرْ فِى ٱلْكِتَـٰبِ مَرْيَمَ</span>
+              &ldquo;And mention Maryam in the Book&hellip;&rdquo;
+              <footer>Qur&rsquo;an 19:16</footer>
+            </blockquote>
+            <figcaption class="photo-credit photo-credit--dark">Photo: Alim / Unsplash</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Houses of Allah around the world -->
+    <section class="section section--sunken">
+      <div class="container">
+        <div class="split" style="align-items: end;">
+          <div data-reveal>
+            <p class="section__eyebrow">One ummah</p>
+            <h2>Houses of Allah around the world</h2>
+          </div>
+          <p data-reveal style="color: var(--color-ink-muted);">
+            From Shiraz to Jakarta, every masjid faces the same Qiblah. While we prepare
+            photographs of Masjid Maryam to share, here are some of the world&rsquo;s most
+            beloved mosques. <a href="/news/gallery.html">Open the gallery &rarr;</a>
+          </p>
+        </div>
+        <div class="bento" data-reveal>
+          <figure class="bento__item bento__item--feature">
+            <img src="/assets/img/photos/world-shiraz.webp" srcset="/assets/img/photos/world-shiraz-sm.webp 600w, /assets/img/photos/world-shiraz.webp 1200w" sizes="(min-width: 48em) 50vw, 100vw" width="1200" height="800" alt="Morning light through the stained-glass windows of the Nasir al-Mulk Mosque, casting colour across its carpets" loading="lazy" decoding="async">
+            <figcaption><strong>Nasir al-Mulk Mosque</strong><span>Shiraz, Iran &middot; Photo: Steven Su</span></figcaption>
+          </figure>
+          <figure class="bento__item">
+            <img src="/assets/img/photos/world-jerusalem-sm.webp" srcset="/assets/img/photos/world-jerusalem-sm.webp 600w, /assets/img/photos/world-jerusalem.webp 1200w" sizes="(min-width: 48em) 25vw, 50vw" width="1200" height="800" alt="The golden Dome of the Rock and its blue tiled walls under a bright sky" loading="lazy" decoding="async">
+            <figcaption><strong>Dome of the Rock</strong><span>Jerusalem &middot; Photo: Stacey Franco</span></figcaption>
+          </figure>
+          <figure class="bento__item">
+            <img src="/assets/img/photos/world-cairo-sm.webp" srcset="/assets/img/photos/world-cairo-sm.webp 600w, /assets/img/photos/world-cairo.webp 1200w" sizes="(min-width: 48em) 25vw, 50vw" width="1200" height="800" alt="The domes and minarets of the al-Rifa&rsquo;i and Sultan Hassan mosques rising above historic Cairo" loading="lazy" decoding="async">
+            <figcaption><strong>Al-Rifa&rsquo;i &amp; Sultan Hassan</strong><span>Cairo, Egypt &middot; Photo: Omar Elsharawy</span></figcaption>
+          </figure>
+          <figure class="bento__item">
+            <img src="/assets/img/photos/world-jakarta-sm.webp" srcset="/assets/img/photos/world-jakarta-sm.webp 600w, /assets/img/photos/world-jakarta.webp 1200w" sizes="(min-width: 48em) 25vw, 50vw" width="1200" height="800" alt="The white Istiqlal Mosque and its tall minaret beside a wide plaza" loading="lazy" decoding="async">
+            <figcaption><strong>Istiqlal Mosque</strong><span>Jakarta, Indonesia &middot; Photo: Mosquegrapher</span></figcaption>
+          </figure>
+          <figure class="bento__item">
+            <img src="/assets/img/photos/world-pakistan-sm.webp" srcset="/assets/img/photos/world-pakistan-sm.webp 600w, /assets/img/photos/world-pakistan.webp 1200w" sizes="(min-width: 48em) 25vw, 50vw" width="1200" height="916" alt="The silhouette of a domed mosque against a glowing evening sky" loading="lazy" decoding="async">
+            <figcaption><strong>At dusk</strong><span>Pakistan &middot; Photo: Usama Sher Khan</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- IntroToIslam partner -->
-    <section class="section" style="padding-top: 0;">
+    <section class="section">
       <div class="container" data-reveal>
         <div class="partner-band">
           <div>
@@ -194,7 +282,8 @@
     </section>
 
     <!-- Donate -->
-    <section class="section section--accent">
+    <section class="section section--accent section--photo">
+      <img class="section__bg" src="/assets/img/photos/donate-bg.webp" srcset="/assets/img/photos/donate-bg-sm.webp 800w, /assets/img/photos/donate-bg.webp 1600w" sizes="100vw" width="1600" height="1067" alt="" loading="lazy" decoding="async">
       <div class="container-narrow" style="text-align: center;" data-reveal>
         <p class="section__eyebrow" style="justify-content: center;">Sadaqah Jariyah</p>
         <h2>Your sadaqah keeps this house of Allah open.</h2>
@@ -207,6 +296,7 @@
           <a class="btn btn--ghost" href="/get-involved/volunteer.html">Volunteer your time</a>
         </div>
       </div>
+      <p class="photo-credit">Photo: Husien Bisky / Unsplash</p>
     </section>
 
   </main>

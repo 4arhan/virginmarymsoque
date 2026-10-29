@@ -49,6 +49,36 @@ function initNav() {
   });
 }
 
+function initHeaderShadow() {
+  const header = document.querySelector("[data-site-header]");
+  if (!header) return;
+  let queued = false;
+  const update = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 40);
+    queued = false;
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    },
+    { passive: true },
+  );
+  update();
+}
+
+function initHeroSlideshow() {
+  const hero = document.querySelector("[data-hero]");
+  const toggle = hero && hero.querySelector("[data-hero-pause]");
+  if (!toggle) return;
+  toggle.addEventListener("click", () => {
+    const paused = hero.classList.toggle("is-paused");
+    toggle.setAttribute("aria-pressed", String(paused));
+  });
+}
+
 function initCurrentYear() {
   const now = new Date().getFullYear();
   document.querySelectorAll("[data-current-year]").forEach((el) => {
@@ -94,12 +124,17 @@ function initReveal() {
 async function boot() {
   await includePartials();
   initNav();
+  initHeaderShadow();
+  initHeroSlideshow();
   initCurrentYear();
   highlightCurrentNav();
   initReveal();
   initA11yToolbar();
   initPrayerTimes();
   initForms();
+  if (document.querySelector("[data-gallery]")) {
+    import("./gallery.js").then((m) => m.initGallery());
+  }
 }
 
 if (document.readyState === "loading") {
