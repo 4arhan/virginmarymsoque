@@ -28,20 +28,113 @@
       <p class="photo-credit">Photo: SR / Unsplash</p>
     </section>
 
+    <!-- What's on -->
     <section class="section">
       <div class="container">
-        <div class="stack-lg" data-events-list aria-live="polite">
-          <p>Loading events&hellip;</p>
-        </div>
+        <nav aria-label="News sections" style="display:flex; gap:var(--space-3); flex-wrap:wrap; margin-bottom: var(--space-5);">
+          <a class="btn btn--ghost btn--sm" href="../news/">All</a>
+          <a class="btn btn--primary btn--sm" href="../news/events.html" aria-current="page">Events</a>
+          <a class="btn btn--ghost btn--sm" href="../news/gallery.html">Gallery</a>
+        </nav>
 
-        <p class="callout" style="margin-top: var(--space-6);">
-          <strong>Announcements land on our socials first.</strong>
-          Follow <a href="https://facebook.com/virginmarymosque" rel="noreferrer" target="_blank">Facebook</a>
-          and <a href="https://instagram.com/virginmarymosque" rel="noreferrer" target="_blank">Instagram</a>,
-          or call <a href="tel:+61380870900">(03) 8087 0900</a> to hear what&rsquo;s coming up.
-          Running an event with us? Email
-          <a href="mailto:admin@virginmarymosque.org.au?subject=Event%20enquiry">admin@virginmarymosque.org.au</a>.
+        <div class="split" style="align-items: start;">
+          <div>
+            <div class="section-head" style="margin-bottom: var(--space-4);" data-reveal>
+              <p class="section__eyebrow">What&rsquo;s on</p>
+              <h2>On the calendar</h2>
+              <p>Weekly gatherings and one-off events at Masjid Maryam, all in one place.</p>
+            </div>
+            <div class="stack-lg" data-events-list aria-live="polite">
+              <p>Loading events&hellip;</p>
+            </div>
+          </div>
+          <figure class="verse-card" data-reveal>
+            <blockquote>
+              <p class="verse-card__arabic" lang="ar" dir="rtl">وَٱعْتَصِمُوا بِحَبْلِ ٱللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا</p>
+              <p class="verse-card__text">&ldquo;And hold firmly to the rope of Allah all together and do not become divided.&rdquo;</p>
+            </blockquote>
+            <figcaption class="verse-card__ref">Qur&rsquo;an 3:103</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Through the year -->
+    <section class="section section--sunken">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section__eyebrow">Through the year</p>
+          <h2>Ramadan, Eid &amp; classes</h2>
+          <p>Beyond Friday prayers, here&rsquo;s what else happens at Masjid Maryam through the year.</p>
+        </div>
+        <div class="grid grid--3" data-reveal>
+          <article class="card">
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-crescent"/></svg></span>
+            <span class="card__eyebrow">Ramadan</span>
+            <h3>Taraweeh prayers</h3>
+            <p>Taraweeh prayers are held nightly after Isha throughout Ramadan &mdash; check announcements for details.</p>
+            <a class="card__cta" href="../programs/prayers.html">Prayer times &rarr;</a>
+          </article>
+          <article class="card">
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-star8"/></svg></span>
+            <span class="card__eyebrow">Eid</span>
+            <h3>Eid prayers</h3>
+            <p>Eid al-Fitr and Eid al-Adha prayers are held at the masjid. Arrangements and times are announced on Facebook and Instagram closer to the date.</p>
+            <a class="card__cta" href="../programs/prayers.html">Ramadan &amp; Eid prayers &rarr;</a>
+          </article>
+          <article class="card">
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-book"/></svg></span>
+            <span class="card__eyebrow">Learning</span>
+            <h3>Classes &amp; programs</h3>
+            <p>Qur&rsquo;an and Islamic classes run through the year. Contact the office for the current timetable.</p>
+            <a class="card__cta" href="../programs/classes.html">About classes &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stay in the loop -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section__eyebrow">Stay in the loop</p>
+          <h2>Hear about it first</h2>
+          <p>
+            Announcements land on our socials first. Follow Masjid Maryam on Facebook and
+            Instagram, or call the office to hear what&rsquo;s coming up.
+          </p>
+        </div>
+        <div class="info-cards" data-reveal>
+          <a class="info-card" href="https://facebook.com/virginmarymosque" rel="noreferrer" target="_blank">
+            <span class="info-card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-facebook"/></svg></span>
+            <span><span class="info-card__label">Announcements first</span><span class="info-card__value">Facebook</span><span class="info-card__note">facebook.com/virginmarymosque</span></span>
+          </a>
+          <a class="info-card" href="https://instagram.com/virginmarymosque" rel="noreferrer" target="_blank">
+            <span class="info-card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-instagram"/></svg></span>
+            <span><span class="info-card__label">Announcements first</span><span class="info-card__value">Instagram</span><span class="info-card__note">@virginmarymosque</span></span>
+          </a>
+          <a class="info-card" href="tel:+61380870900">
+            <span class="info-card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-phone"/></svg></span>
+            <span><span class="info-card__label">What&rsquo;s coming up?</span><span class="info-card__value">(03) 8087 0900</span><span class="info-card__note">Call the office</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="section section--accent">
+      <div class="container-narrow" style="text-align: center;" data-reveal>
+        <p class="section__eyebrow" style="justify-content: center;">Running an event with us?</p>
+        <h2>Get in touch with the office.</h2>
+        <p style="margin-top: var(--space-3);">
+          Email the office at
+          <a href="mailto:admin@virginmarymosque.org.au?subject=Event%20enquiry">admin@virginmarymosque.org.au</a>,
+          or give us a call.
         </p>
+        <div class="hero__actions" style="justify-content: center;">
+          <a class="btn btn--accent" href="mailto:admin@virginmarymosque.org.au?subject=Event%20enquiry">Email the office</a>
+          <a class="btn btn--ghost" href="tel:+61380870900">Call (03) 8087 0900</a>
+        </div>
       </div>
     </section>
   </main>

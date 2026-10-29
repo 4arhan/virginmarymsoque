@@ -118,6 +118,11 @@ video {
   max-width: 100%;
 }
 
+/* Let width/height attributes set the aspect ratio, not a fixed pixel height. */
+img {
+  height: auto;
+}
+
 h1,
 h2,
 h3,
@@ -270,7 +275,13 @@ a:hover {
 }
 
 .grid--2 {
-  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 48em) {
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .grid--3 {
@@ -808,6 +819,20 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.1rem 0.3rem;
+  }
+
+  /* An odd last item takes the full width instead of sitting alone. */
+  .has-sub--wide .site-nav__sublist > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .site-nav__sublink--accent {
+    background: linear-gradient(120deg, var(--color-accent-100), var(--color-surface-warm));
+  }
+
+  .site-nav__sublink--accent .site-nav__subicon {
+    background: linear-gradient(150deg, var(--color-accent-300), var(--color-accent-500));
+    color: var(--color-primary-950);
   }
 
   .site-nav__sublink {
@@ -1452,6 +1477,7 @@ a:hover {
 .section--accent .btn--ghost:hover,
 .hero .btn--ghost:hover,
 .page-hero .btn--ghost:hover,
+.partner-band .btn--ghost:hover,
 .site-footer .btn--ghost:hover {
   color: var(--color-accent-300);
   border-color: var(--color-accent-300);
@@ -3253,6 +3279,21 @@ html {
   background-size: 100% 1px;
 }
 
+/* Whole-card links keep card typography, not link styling */
+a.card,
+a.prompt-tile {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.card .card__cta {
+  color: var(--color-primary-700);
+}
+
+a.card:hover .card__cta {
+  color: var(--color-accent-700);
+}
+
 /* Lists in page content: gold star bullets and numbered gold circles */
 main ul:not([class]) {
   list-style: none;
@@ -3321,7 +3362,13 @@ main ol:not([class]) > li::before {
   background: linear-gradient(135deg, var(--color-primary-050), #f7fbf8);
 }
 
+/* The watermark sits behind everything in the callout, bare text included. */
+.callout {
+  isolation: isolate;
+}
+
 .callout::after {
+  z-index: -1;
   content: "";
   position: absolute;
   right: -1.4rem;
@@ -3331,11 +3378,6 @@ main ol:not([class]) > li::before {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b4943c' stroke-width='.9'%3E%3Cpath d='M12 2 22 12 12 22 2 12Z'/%3E%3Cpath d='M4.9 4.9h14.2v14.2H4.9Z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E") center / contain no-repeat;
   opacity: 0.16;
   pointer-events: none;
-}
-
-.callout > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* Tile strip between an inner page's photo hero and its first section */
@@ -3707,6 +3749,13 @@ main details > :not(summary) {
   color: var(--color-accent-700);
 }
 
+/* Two columns on phones: a lone last tile spans the row instead of leaving a gap. */
+@media (max-width: 30em) {
+  .stat:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 .section--accent .stat {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(226, 206, 141, 0.22);
@@ -3837,6 +3886,14 @@ a.info-card:hover {
   margin-top: 0.2rem;
   font-size: 0.85rem;
   color: var(--color-ink-muted);
+  overflow-wrap: anywhere;
+}
+
+/* Current item in a row of filter buttons (e.g. All / Events / Gallery) */
+.btn[aria-current="page"] {
+  background: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+  color: var(--color-ondark);
 }
 
 /* A photo with an offset gold frame */
@@ -4044,6 +4101,150 @@ a.info-card:hover {
 .page-hero .chip .icon,
 .hero .chip .icon {
   color: var(--color-accent-300);
+}
+
+/* Support band: points to the masjid's support page and ICV's Ask ICV topics */
+.section:not(.section--sunken):not(.section--accent) + .section--support {
+  padding-top: 0;
+}
+
+.support-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-4);
+  border: 1px solid var(--color-line-gold);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(204, 177, 90, 0.18), transparent 55%),
+    linear-gradient(135deg, var(--color-surface), var(--color-surface-warm));
+  box-shadow: var(--shadow-md);
+}
+
+.support-band::after {
+  content: "";
+  position: absolute;
+  right: -2.5rem;
+  bottom: -2.5rem;
+  z-index: -1;
+  width: 11rem;
+  height: 11rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b4943c' stroke-width='.7'%3E%3Cpath d='M12 2 22 12 12 22 2 12Z'/%3E%3Cpath d='M4.9 4.9h14.2v14.2H4.9Z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+@media (min-width: 56em) {
+  .support-band {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-5);
+  }
+}
+
+.support-band__icon {
+  display: grid;
+  place-items: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 1.1rem;
+  background: linear-gradient(150deg, var(--color-primary-800), var(--color-primary-600));
+  color: var(--color-accent-300);
+  box-shadow: 0 12px 26px -14px rgba(6, 24, 14, 0.7), inset 0 0 0 1px rgba(226, 206, 141, 0.25);
+}
+
+.support-band__icon .icon {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.support-band .section__eyebrow {
+  margin-bottom: var(--space-2);
+}
+
+.support-band__title {
+  font-size: var(--fs-step-3);
+}
+
+.support-band__body > p:not(.section__eyebrow) {
+  margin-top: var(--space-2);
+  max-width: 44rem;
+  color: var(--color-ink-muted);
+}
+
+.support-band__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+.support-band__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.5rem;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--color-primary-100);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-primary-700);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.support-band__links a:hover {
+  border-color: var(--color-line-gold);
+  background: var(--color-accent-100);
+  color: var(--color-accent-700);
+  transform: translateY(-1px);
+}
+
+.support-band__links .icon {
+  width: 0.85rem;
+  height: 0.85rem;
+  opacity: 0.7;
+}
+
+.support-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.support-band__actions .btn {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 55.99em) {
+  .support-band {
+    gap: var(--space-3);
+  }
+
+  .support-band__icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.95rem;
+  }
+
+  .support-band__icon .icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+@media (min-width: 56em) {
+  .support-band__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 /* ---------- Phone layout overrides (after the components they adjust) ---------- */

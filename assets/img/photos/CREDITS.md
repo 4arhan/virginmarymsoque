@@ -68,3 +68,4 @@ Files are named by **where they appear** on the site, not by what they show. To 
 | `hero-membership` | 1600 / 800 | Mosque interior with stained glass | ekrem osmanoglu | [unsplash.com/photos/_1xLgMnaL1U](https://unsplash.com/photos/_1xLgMnaL1U) |
 | `hero-contact` | 1600 / 800 | White mosque and palm | Aldin Nasrun | [unsplash.com/photos/rEH8hG7wUgw](https://unsplash.com/photos/rEH8hG7wUgw) |
 | `hero-404` | 1600 / 800 | Minaret against a green sky | Alim | [unsplash.com/photos/_k0r8ebPzp8](https://unsplash.com/photos/_k0r8ebPzp8) |
+| `hero-support` | 1600 / 800 | Hands raised in du'a before a geometric lattice screen | Masjid MABA | [unsplash.com/photos/QhzQfD0ihnI](https://unsplash.com/photos/QhzQfD0ihnI) |

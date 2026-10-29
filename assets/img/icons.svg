@@ -38,6 +38,14 @@
   <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.6 21.2 19.6H2.8Z"/><path d="M12 9.8v4.6M12 17h.01"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H17v3"/><path d="M4 7.5v10A2.5 2.5 0 0 0 6.5 20h13a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H6.5A2.5 2.5 0 0 1 4 7.5Z"/><path d="M16.5 14.2h.01"/></symbol>
+  <symbol id="i-health" viewBox="0 0 24 24"><path d="M12 20.2s-7.8-4.6-7.8-10.4A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7.8 2.8c0 5.8-7.8 10.4-7.8 10.4Z"/><path d="M6.6 12.3h2.8l1.4-2.4 2 4.2 1.4-1.8h3.2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3.5" y="7.5" width="17" height="12" rx="2"/><path d="M9 7.5V6a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 6v1.5M3.5 12.5h17"/></symbol>
+  <symbol id="i-scales" viewBox="0 0 24 24"><path d="M12 4.2v15.6M8 19.8h8M5 7h14"/><path d="M5 7 2.6 13h4.8Z"/><path d="M19 7l-2.4 6h4.8Z"/><path d="M2.6 13a2.4 2.4 0 0 0 4.8 0M16.6 13a2.4 2.4 0 0 0 4.8 0"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 3.5 5.3 3.5 8.6s-1.2 6.2-3.5 8.6c-2.3-2.4-3.5-5.3-3.5-8.6S9.7 5.8 12 3.4Z"/></symbol>
+  <symbol id="i-home-heart" viewBox="0 0 24 24"><path d="M3.5 11 12 3.8l8.5 7.2"/><path d="M5.8 9.4V20h12.4V9.4"/><path d="M12 17.4s-2.9-1.7-2.9-3.8a1.5 1.5 0 0 1 2.9-.7 1.5 1.5 0 0 1 2.9.7c0 2.1-2.9 3.8-2.9 3.8Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.4 19 6v6c0 4.4-3 7.6-7 8.6-4-1-7-4.2-7-8.6V6Z"/><path d="m9 12 2 2 4-4"/></symbol>
   <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M15.12 5.32H17V2.14A26.1 26.1 0 0 0 14.26 2c-2.72 0-4.58 1.66-4.58 4.7v2.62H6.61v3.56h3.07V22h3.68v-9.12h3.06l.46-3.56h-3.52V7.05c0-1.03.28-1.73 1.76-1.73Z"/></symbol>
   <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></symbol>
 </svg>
