@@ -2929,8 +2929,8 @@ select:focus {
   color: var(--color-accent-300);
 }
 
-/* No light gap when the page already ends on a dark band */
-main:has(> section:last-child:is(.section--accent, .section--photo)) ~ .site-footer {
+/* No light gap when the page already ends on a section (it has its own padding) */
+main:has(> section:last-child) ~ .site-footer {
   margin-top: 0;
 }
 
@@ -3203,6 +3203,7 @@ body[data-dyslexic="true"] {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 
@@ -4248,6 +4249,124 @@ a.info-card:hover {
   }
 }
 
+/* ---------- Refinements ---------- */
+
+/* Page heroes: a slowly turning gold rosette fills the empty right side on wide screens */
+@media (min-width: 62em) {
+  .page-hero > .container::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: clamp(15rem, 20vw, 20rem);
+    aspect-ratio: 1;
+    translate: 0 -50%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23e2ce8d'%3E%3Ccircle cx='100' cy='100' r='97' stroke-width='.8'/%3E%3Ccircle cx='100' cy='100' r='91' stroke-width='.7' stroke-dasharray='1.5 4.5'/%3E%3Cpath d='M37 37h126v126H37Z' stroke-width='.9'/%3E%3Cpath d='M100 11 189 100 100 189 11 100Z' stroke-width='.9'/%3E%3Cpath d='M62 62h76v76H62Z' stroke-width='.7'/%3E%3Cpath d='M100 46 154 100 100 154 46 100Z' stroke-width='.7'/%3E%3Ccircle cx='100' cy='100' r='24' stroke-width='.7'/%3E%3Ccircle cx='100' cy='100' r='4' fill='%23e2ce8d' stroke='none'/%3E%3C/svg%3E") center / contain no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    animation: rosette-turn 240s linear infinite;
+  }
+}
+
+@keyframes rosette-turn {
+  to {
+    rotate: 1turn;
+  }
+}
+
+/* Photo link cards: a deeper scrim and soft shadow keep text legible on busy photos */
+.photo-card::before {
+  background: linear-gradient(180deg, rgba(6, 24, 14, 0.1) 10%, rgba(6, 24, 14, 0.62) 46%, rgba(6, 24, 14, 0.96) 100%);
+}
+
+.photo-card__eyebrow,
+.photo-card__title,
+.photo-card__text {
+  text-shadow: 0 1px 12px rgba(3, 14, 8, 0.6);
+}
+
+/* Three big numbers that always share one row (e.g. the Jumu'ah times) */
+.stats--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Map embeds show a map-paper placeholder until (or unless) the map loads */
+.embed-ratio {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b5836' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z'/%3E%3Ccircle cx='12' cy='9.5' r='2.5'/%3E%3C/svg%3E") center / 3rem no-repeat,
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(21, 66, 41, 0.07) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(21, 66, 41, 0.07) 39px 40px),
+    var(--color-primary-050);
+}
+
+/* Compact topic links: icon beside the title (Find support) */
+.card--topic {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.2rem 1rem;
+  padding: 1.1rem 1.25rem;
+}
+
+.card--topic::after {
+  display: none;
+}
+
+.card--topic .card__icon {
+  grid-row: 1 / span 2;
+  width: 2.9rem;
+  height: 2.9rem;
+  margin: 0;
+  border-radius: 0.85rem;
+}
+
+.card--topic .card__icon .icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.card--topic h3 {
+  align-self: end;
+  font-size: 1.3rem;
+  line-height: 1.15;
+}
+
+.card--topic .card__cta {
+  align-self: start;
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 0.78rem;
+}
+
+/* A topic card with a description: the icon spans all three rows */
+.card--topic:has(> p) .card__icon {
+  grid-row: 1 / span 3;
+}
+
+.card--topic > p {
+  font-size: 0.88rem;
+}
+
+/* A card that takes two columns once the grid has three */
+@media (min-width: 62.5em) {
+  .card--span-2 {
+    grid-column: span 2;
+  }
+}
+
+/* Four quote tiles: two by two, then one row on wide screens */
+@media (min-width: 40em) {
+  .prompt-tiles--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 70em) {
+  .prompt-tiles--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 /* ---------- Phone layout overrides (after the components they adjust) ---------- */
 @media (max-width: 48em) {
   /* Card rows become a swipeable, snapping carousel that bleeds to the screen edges. */
@@ -4285,6 +4404,122 @@ a.info-card:hover {
   .a11y-toolbar__toggle,
   .to-top {
     display: none;
+  }
+
+  .site-footer__grid {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 30em) {
+  /* Photo link cards become a two-up grid of image tiles; a lone last tile spans the row. */
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .photo-card {
+    min-height: 12.5rem;
+    padding: 0.95rem;
+    border-radius: var(--radius-md);
+  }
+
+  .photo-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    min-height: 10rem;
+  }
+
+  .photo-card__eyebrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+  }
+
+  .photo-card__title {
+    font-size: 1.15rem;
+  }
+
+  .photo-card__text,
+  .photo-card__cta {
+    display: none;
+  }
+
+  /* Gallery: two columns of photos */
+  .gallery-grid {
+    columns: 2;
+    column-gap: 0.65rem;
+  }
+
+  .gallery-item {
+    margin-bottom: 0.9rem;
+  }
+
+  .gallery-item__open {
+    border-radius: var(--radius-md);
+  }
+
+  .gallery-item figcaption {
+    padding-top: 0.4rem;
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .gallery-item figcaption strong {
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  /* Jumu'ah times sit side by side */
+  .jumuah-banner {
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .jumuah-banner__times {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .jumuah-banner__times > span {
+    padding: 0.5rem 0.25rem;
+    text-align: center;
+    border: 1px solid var(--color-line-gold);
+    border-radius: var(--radius-md);
+    background: var(--color-accent-100);
+  }
+
+  .stats--3 {
+    gap: 0.5rem;
+  }
+
+  .stats--3 .stat {
+    padding: 1.1rem 0.35rem;
+  }
+
+  .stats--3 .stat__value {
+    font-size: 1.5rem;
+  }
+
+  .stats--3 .stat__label {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+
+  .stats--3 .stat:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  /* Footer link lists run in two columns */
+  .site-footer__grid ul:not(.footer-contact) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem 1rem;
+  }
+
+  .site-footer__grid ul:not(.footer-contact) li + li {
+    margin-top: 0;
   }
 }
 

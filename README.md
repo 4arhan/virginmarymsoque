@@ -67,8 +67,25 @@ Icons are one sprite, `assets/img/icons.svg`:
 Building blocks in `styles.css` (search for the class): `section-head`, `card` with
 `card__icon`, `photo-grid` + `photo-card`, `stats`/`stat`, `steps`/`step`,
 `info-cards`/`info-card`, `media-frame` (`--arch`), `verse-card`, `feature-list`,
-`chips`/`chip`, `callout`, and `scroller` (turns a card grid into a swipeable row on
+`chips`/`chip`, `callout`, `support-band` (the "More support · Ask ICV" panel),
+`card--topic` (compact icon-and-title link card), `stats--3` (three numbers on one
+row), `prompt-tiles--4`, and `scroller` (turns a card grid into a swipeable row on
 phones). Plain `<ul>`/`<ol>` lists in page content get gold star bullets automatically.
+
+## Support & ICV
+
+`programs/support.html` lists all 13 topics of the Islamic Council of Victoria's
+**Ask ICV** service finder (<https://www.icv.org.au/askicv>), plus urgent numbers and
+ICV's Islamophobia support. Relevant program pages end with a `support-band` linking
+their matching Ask ICV topics. If ICV renames a topic, update the links there.
+
+## Icons & share preview
+
+`assets/img/favicon.svg` (browser tab), `apple-touch-icon.png` and `icon-*.png`
+(home-screen icons, listed in `site.webmanifest`), and `og-image.jpg` (the preview
+shown when a link is shared on WhatsApp, Facebook, etc.). The `og:image` tags use the
+absolute URL `https://virgin-mary-mosque.vercel.app/assets/img/og-image.jpg` —
+update it if the site moves to its own domain.
 
 ## Updating
 
@@ -105,6 +122,14 @@ purpose, because Vercel serves it at any URL depth.
 
 ## Deploy
 
+Live at <https://virgin-mary-mosque.vercel.app> (Vercel project
+`virgin-mary-mosque`). From the repository root:
+
 ```
 vercel deploy --prod
 ```
+
+`vercel.json` serves files exactly as linked (no clean-URL redirects) and makes
+browsers revalidate CSS, JS, data and partials on each visit, so updates show up
+immediately. To deploy on every push instead, connect the GitHub repository to the
+project in the Vercel dashboard (production follows `main`).
