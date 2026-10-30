@@ -184,9 +184,11 @@ function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
   const local = ["localhost", "127.0.0.1"].includes(location.hostname);
   if (location.protocol !== "https:" && !local) return;
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register(`${ROOT}sw.js`).catch(() => {});
-  });
+  // After the page has finished loading, so it never competes for bandwidth.
+  // boot() runs after the partials arrive, which may be after the load event.
+  const register = () => navigator.serviceWorker.register(`${ROOT}sw.js`).catch(() => {});
+  if (document.readyState === "complete") register();
+  else window.addEventListener("load", register, { once: true });
 }
 
 async function boot() {
