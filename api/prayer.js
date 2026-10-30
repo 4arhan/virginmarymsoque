@@ -6,7 +6,7 @@
 // responses (s-maxage), so awqat sees a handful of requests per hour at most.
 
 const TIMES_URL = "https://awqat.com.au/www/data/wtimes-AU.MELBOURNE.ini";
-const IQAMA_URL = "https://awqat.com.au/vmm/iqamafixed.js";
+export const IQAMA_URL = "https://awqat.com.au/vmm/iqamafixed.js";
 const TZ = "Australia/Melbourne";
 
 const PRAYER_NAMES = ["Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"];
@@ -41,7 +41,7 @@ function parseAdhan(text, key) {
   return null;
 }
 
-function parseIqama(text) {
+export function parseIqama(text) {
   const fixed = {};
   const offsetMinutes = {};
 

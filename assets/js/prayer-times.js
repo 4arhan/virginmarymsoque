@@ -10,80 +10,26 @@
 //      changes appear without a redeploy. If the API is unreachable (e.g.
 //      local preview), the bundled data stands.
 //
-// IQAMA_FIXED / IQAMA_OFFSET last synced 2026-07-17 from
-// https://awqat.com.au/vmm/iqamafixed.js.
+// The calculations (dataset lookup, iqamah rules, formatting) live in
+// ./prayer-core.js, shared with the calendar feed in api/prayer-calendar.js.
 
-import { YEARLY_TIMES } from "./times-data.js";
+import {
+  TZ,
+  PRAYER_NAMES,
+  SALAH_NAMES,
+  timingsFor,
+  toMinutes,
+  computeIqamaTimes,
+  format12h,
+  melbourneParts,
+} from "./prayer-core.js";
 
-const TZ = "Australia/Melbourne";
 const API_URL = new URL("../../api/prayer", import.meta.url);
-
-const IQAMA_FIXED = { Fajr: "06:30", Dhuhr: "12:45", Asr: "15:30", Isha: "19:30" };
-const IQAMA_OFFSET = { Maghrib: 5 }; // minutes after adhan
-
-const PRAYER_NAMES = ["Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"];
-const SALAH_NAMES = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
 
 // "Now" in Melbourne, regardless of the visitor's timezone.
 function melbourneNow(date = new Date()) {
-  const parts = new Intl.DateTimeFormat("en-AU", {
-    timeZone: TZ,
-    hour12: false,
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).formatToParts(date);
-  const p = {};
-  for (const { type, value } of parts) p[type] = value;
-  return {
-    key: `${p.month}-${p.day}`,
-    minutes: (Number(p.hour) % 24) * 60 + Number(p.minute),
-  };
-}
-
-function timingsFor(key) {
-  const line = YEARLY_TIMES.find((row) => row.startsWith(key));
-  if (!line) return null;
-  const parts = line.split("~~~~~")[1].split("|");
-  if (parts.length < 6) return null;
-  const timings = {};
-  PRAYER_NAMES.forEach((name, i) => {
-    timings[name] = parts[i];
-  });
-  return timings;
-}
-
-function toMinutes(hhmm) {
-  const [h, m] = hhmm.split(":").map(Number);
-  return h * 60 + m;
-}
-
-function addMinutes(hhmm, mins) {
-  const total = toMinutes(hhmm) + mins;
-  return `${String(Math.floor(total / 60) % 24).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
-}
-
-function computeIqamaTimes(adhan, fixed = IQAMA_FIXED, offset = IQAMA_OFFSET) {
-  const iqama = {};
-  for (const name of SALAH_NAMES) {
-    if (fixed[name]) {
-      iqama[name] = fixed[name];
-    } else if (offset[name] != null && adhan[name]) {
-      iqama[name] = addMinutes(adhan[name], offset[name]);
-    } else {
-      iqama[name] = "";
-    }
-  }
-  return iqama;
-}
-
-function format12h(hhmm) {
-  if (!hhmm || !hhmm.includes(":")) return hhmm;
-  const [h, m] = hhmm.split(":").map(Number);
-  const period = h >= 12 ? "PM" : "AM";
-  const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
-  return `${h12}:${String(m).padStart(2, "0")} ${period}`;
+  const { key, minutes } = melbourneParts(date);
+  return { key, minutes };
 }
 
 // Next salah after `nowMinutes`; after Isha it is tomorrow's Fajr.

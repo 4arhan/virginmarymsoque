@@ -8,6 +8,8 @@ import { initA11yToolbar } from "./a11y-toolbar.js";
 import { initPrayerTimes } from "./prayer-times.js";
 import { initForms } from "./forms.js";
 import { initNav } from "./nav.js";
+import { initInstall } from "./install.js";
+import { WHATSAPP_COMMUNITY_URL } from "./site-config.js";
 
 // Site root path, derived from this file's location (<root>/assets/js/main.js):
 // "/" on the production domain, "/virginmarymsoque/" on GitHub Pages.
@@ -102,6 +104,91 @@ function initReveal() {
   els.forEach((el) => io.observe(el));
 }
 
+// "Join our WhatsApp community" links: the invite link from site-config.js,
+// or — until one is set — the email fallback written in the HTML. An element
+// with data-whatsapp-fallback="email" turns into an Email action instead.
+function initCommunityLinks() {
+  document.querySelectorAll("[data-whatsapp-join]").forEach((link) => {
+    if (WHATSAPP_COMMUNITY_URL) {
+      link.href = WHATSAPP_COMMUNITY_URL;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      return;
+    }
+    if (link.dataset.whatsappFallback === "email") {
+      link.href = link.href.replace(/\?.*$/, "");
+      const use = link.querySelector("use");
+      if (use) use.setAttribute("href", `${ROOT}assets/img/icons.svg#i-mail`);
+      const label = link.querySelector("span");
+      if (label) label.textContent = "Email";
+      link.classList.remove("is-whatsapp");
+    }
+  });
+}
+
+// Today's Hijri date (Umm al-Qura), for the footer and the phone menu.
+function initHijriDate() {
+  let hijri = "";
+  try {
+    hijri = new Intl.DateTimeFormat("en-AU-u-ca-islamic-umalqura", {
+      timeZone: "Australia/Melbourne",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(new Date());
+  } catch {
+    return;
+  }
+  if (!hijri) return;
+  document.querySelectorAll("[data-hijri-date]").forEach((el) => {
+    el.textContent = hijri;
+  });
+  document.querySelectorAll("[data-hijri-wrap]").forEach((el) => {
+    el.hidden = false;
+  });
+}
+
+// Big numbers count up the first time they scroll into view.
+function initCountUp() {
+  const els = [...document.querySelectorAll(".stat__value")].filter((el) => /^[\d,]+$/.test(el.textContent.trim()));
+  if (!els.length || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const el = entry.target;
+        io.unobserve(el);
+        const text = el.textContent.trim();
+        const target = Number(text.replace(/,/g, ""));
+        const from = target >= 1000 ? target - 30 : 0;
+        const start = performance.now();
+        const duration = 900;
+        const tick = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const value = Math.round(from + (target - from) * eased);
+          el.textContent = text.includes(",") ? value.toLocaleString("en-AU") : String(value);
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    },
+    { threshold: 0.6 },
+  );
+  els.forEach((el) => io.observe(el));
+}
+
+// Offline support and "Add to Home Screen" (see sw.js). Secure contexts only.
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
+  if (location.protocol !== "https:" && !local) return;
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register(`${ROOT}sw.js`).catch(() => {});
+  });
+}
+
 async function boot() {
   await includePartials();
   initNav(ROOT);
@@ -111,12 +198,26 @@ async function boot() {
   initA11yToolbar();
   initPrayerTimes();
   initForms();
+  initCommunityLinks();
+  initHijriDate();
+  initCountUp();
+  initInstall(ROOT);
   if (document.querySelector("[data-gallery]")) {
     import("./gallery.js").then((m) => m.initGallery());
   }
   if (document.querySelector("[data-donate]")) {
     import("./donate.js").then((m) => m.initDonate());
   }
+  if (document.querySelector("[data-calendar-subscribe]")) {
+    import("./calendar-subscribe.js").then((m) => m.initCalendarSubscribe());
+  }
+  if (document.querySelector("[data-instagram-feed]")) {
+    import("./instagram-feed.js").then((m) => m.initInstagramFeed(ROOT));
+  }
+  if (document.querySelector("[data-visit-planner]")) {
+    import("./visit-planner.js").then((m) => m.initVisitPlanner(ROOT));
+  }
+  registerServiceWorker();
 }
 
 if (document.readyState === "loading") {

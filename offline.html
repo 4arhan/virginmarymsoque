@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The service worker shows this page for any address while offline, so links
+       must resolve against the site root rather than the failed address. -->
+  <script>
+    (function () {
+      var worker = navigator.serviceWorker && navigator.serviceWorker.controller;
+      var root = worker ? worker.scriptURL.replace(/sw\.js$/, "") : "./";
+      document.write('<base href="' + root + '">');
+    })();
+  </script>
+  <title>You&rsquo;re offline &mdash; Virgin Mary Mosque</title>
+  <meta name="description" content="This page is shown when the Virgin Mary Mosque website can't be reached.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#06180e">
+  <meta name="apple-mobile-web-app-title" content="Masjid Maryam">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div data-include="header"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero">
+      <div class="container" data-reveal>
+        <h1>You&rsquo;re offline.</h1>
+        <p class="page-hero__lede">
+          This page couldn&rsquo;t be loaded without a connection. Today&rsquo;s prayer times
+          are still here &mdash; they are stored on your device.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="split" style="align-items: start;">
+          <div data-include="prayer-widget"></div>
+          <div data-reveal>
+            <div class="section-head" style="margin-bottom: var(--space-4);">
+              <p class="section__eyebrow">While you&rsquo;re offline</p>
+              <h2>What still works</h2>
+            </div>
+            <ul class="feature-list">
+              <li>
+                <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-clock"/></svg></span>
+                <div><strong>Prayer times</strong><p>Adhan times for every day of the year, and the usual iqamah times. Live changes from the mosque need a connection.</p></div>
+              </li>
+              <li>
+                <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-phone"/></svg></span>
+                <div><strong>Call the office</strong><p><a href="tel:+61380870900">(03) 8087 0900</a> &mdash; 143 Hogans Rd, Hoppers Crossing.</p></div>
+              </li>
+              <li>
+                <span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-kaaba"/></svg></span>
+                <div><strong>Jumu&rsquo;ah</strong><p>Every Friday at 12:15 PM, 1:15 PM and 2:15 PM &mdash; khutbahs in Arabic and English.</p></div>
+              </li>
+            </ul>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="./">Try again</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

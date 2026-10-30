@@ -42,6 +42,7 @@
     }
   ],
   "rewrites": [
-    { "source": "/dark-site", "destination": "/dark-site.html" }
+    { "source": "/dark-site", "destination": "/dark-site.html" },
+    { "source": "/prayer-times.ics", "destination": "/api/prayer-calendar" }
   ]
 }

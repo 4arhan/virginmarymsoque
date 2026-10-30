@@ -118,6 +118,69 @@ Before launch, confirm the appeal wording with the masjid — in particular how 
 Gaza and Global Emergencies appeals are distributed — and check whether Stripe
 offers the mosque discounted pricing as a registered charity.
 
+## Prayer times in your calendar
+
+`api/prayer-calendar.js` serves the prayer times as a subscribable calendar feed at
+<https://virgin-mary-mosque.vercel.app/prayer-times.ics> (one event per salah per
+day, adhan to iqamah, plus Jumu'ah on Fridays; yesterday to 120 days ahead). The
+prayers page has Google / iPhone / Outlook buttons and a copy-link button
+(`assets/js/calendar-subscribe.js`). Google Calendar refreshes subscribed feeds
+about once a day; Apple and Outlook on their own schedules. Options:
+`?prayers=fajr,isha,jumuah`, `?days=60`, `?reminder=10`. Shared calculations are in
+`assets/js/prayer-core.js`; the iqamah rules are fetched live from awqat.com.au/vmm
+with the bundled rules as the fallback.
+
+## Add to home screen & offline
+
+`site.webmanifest` + `sw.js` make the site installable. The service worker is
+**network-first** (every request still goes to the network, so updates appear at
+once); the cache is only used when offline, when `offline.html` (which still shows
+the day's prayer times) stands in for pages that were never visited. Live data
+(`/api/…`, the calendar feed) is never cached. `assets/js/install.js` shows a small
+"add to home screen" banner on phones once per 30 days (Android: the browser's
+install prompt; iPhone: Share → Add to Home Screen instructions) and powers the
+"Add to home screen" button on the prayers page. Bump `VERSION` in `sw.js` when
+changing the precache list.
+
+## Instagram feed
+
+The News page shows the latest posts (and the homepage a four-post strip) from
+`/api/instagram` (`api/instagram.js`). Until a token is set it answers
+`{ enabled: false }`: the News page shows a "follow us" card and the homepage strip
+is hidden, so nothing looks broken.
+
+**Switching it on.** Instagram's API needs a Meta developer app and a token for the
+mosque's Instagram account (a professional/business or creator account; Meta
+changes this flow from time to time, so follow their current docs):
+
+1. <https://developers.facebook.com> → My Apps → Create app → choose **Other** →
+   **Business** → add the **Instagram** product ("Instagram API with Instagram
+   Login").
+2. In the app's Instagram settings, add the mosque's Instagram account as an
+   Instagram tester (or log in with it under "API setup with Instagram login") and
+   click **Generate token**. Copy the **long-lived** access token.
+3. Vercel → project → Settings → Environment Variables → add
+   `INSTAGRAM_ACCESS_TOKEN`, then redeploy.
+
+Tokens expire after 60 days; the function refreshes the token once a day while the
+site is visited. If Instagram ever issues a *different* token, a warning appears in
+the Vercel function logs and the variable must be updated by hand.
+
+## WhatsApp community
+
+Set `WHATSAPP_COMMUNITY_URL` in `assets/js/site-config.js` to the community's
+invite link (WhatsApp → the community → Invite members → Copy link) and redeploy.
+Every "Join our WhatsApp community" button (footer, News page, contact page, phone
+menu) switches from the email fallback to the link.
+
+## Plan your visit
+
+`assets/js/visit-planner.js` on `interfaith/visiting.html`: four questions, then a
+checklist built from the answers (the wording is drawn from the visiting pages), an
+email to the office pre-filled with the answers, and — for a Friday visit — the
+next Jumu'ah as a Google Calendar link and an `.ics` download. To change the
+questions or advice, edit `STEPS` and `buildPlan()` in that file.
+
 ## Icons & share preview
 
 `assets/img/favicon.svg` (browser tab), `apple-touch-icon.png` and `icon-*.png`

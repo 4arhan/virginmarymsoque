@@ -1,8 +1,10 @@
 {
+  "id": "masjid-maryam",
   "name": "Virgin Mary Mosque (Masjid Maryam)",
   "short_name": "Masjid Maryam",
   "description": "Prayer times, Jumu'ah, classes and community services at Virgin Mary Mosque, Hoppers Crossing.",
-  "start_url": "./",
+  "lang": "en-AU",
+  "start_url": "./?source=app",
   "scope": "./",
   "display": "standalone",
   "background_color": "#faf7f0",
@@ -11,5 +13,10 @@
     { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" },
     { "src": "assets/img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Prayer times", "url": "programs/prayers.html?source=app", "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Upcoming events", "url": "news/events.html?source=app", "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Donate", "url": "get-involved/donate.html?source=app", "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }] }
   ]
 }

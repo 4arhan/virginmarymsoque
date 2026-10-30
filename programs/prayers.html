@@ -7,6 +7,7 @@
   <meta name="description" content="Daily adhan and iqamah times synced with the mosque display, three Friday Jumu'ah congregations, and Eid and Ramadan prayers at Virgin Mary Mosque (Masjid Maryam), Hoppers Crossing.">
   <link rel="canonical" href="https://www.virginmarymosque.org.au/programs/prayers.html">
   <meta name="theme-color" content="#06180e">
+  <meta name="apple-mobile-web-app-title" content="Masjid Maryam">
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
   <link rel="manifest" href="../site.webmanifest">
@@ -101,6 +102,65 @@
           <span class="chip"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-calendar"/></svg> Every Friday</span>
           <span class="chip"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-mic"/></svg> Khutbahs in Arabic &amp; English</span>
           <span class="chip"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-users"/></svg> Women&rsquo;s prayer section</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendar feed and the home-screen app -->
+    <section class="section" id="calendar">
+      <div class="container">
+        <div class="split" style="align-items: start;">
+          <div data-reveal>
+            <div class="section-head" style="margin-bottom: var(--space-4);">
+              <p class="section__eyebrow">Prayer times in your calendar</p>
+              <h2>Subscribe once &mdash; every day&rsquo;s times appear by themselves</h2>
+              <p>
+                Add the masjid&rsquo;s calendar to your phone and each day&rsquo;s adhan and
+                iqamah times, and Friday&rsquo;s Jumu&rsquo;ah, show up alongside your own
+                events &mdash; changing with the seasons without you doing a thing.
+              </p>
+            </div>
+            <div class="cal-subscribe" data-calendar-subscribe>
+              <a class="btn btn--primary" data-cal="google" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fvirgin-mary-mosque.vercel.app%2Fprayer-times.ics" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-calendar-plus"/></svg> Google Calendar</a>
+              <a class="btn btn--primary" data-cal="apple" href="webcal://virgin-mary-mosque.vercel.app/prayer-times.ics"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-calendar-plus"/></svg> iPhone &amp; Mac</a>
+              <a class="btn btn--primary" data-cal="outlook" href="https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fvirgin-mary-mosque.vercel.app%2Fprayer-times.ics&amp;name=Masjid%20Maryam%20prayer%20times" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-calendar-plus"/></svg> Outlook</a>
+              <button class="btn btn--ghost" type="button" data-cal="copy">Copy calendar link</button>
+              <p class="form__hint" data-cal-copied hidden>Copied. In any calendar app, choose &ldquo;Subscribe&rdquo; or &ldquo;Add from URL&rdquo; and paste it.</p>
+            </div>
+            <details class="cal-help">
+              <summary>How it works, and more options</summary>
+              <ul>
+                <li><strong>Google Calendar:</strong> the button opens Google Calendar and asks to add the feed. If you are on a phone, do this once on a computer &mdash; the calendar then appears in the Google Calendar app too. (Manual route: Other calendars &rsaquo; + &rsaquo; From URL.)</li>
+                <li><strong>iPhone, iPad &amp; Mac:</strong> tap the button and choose Subscribe. Or: Settings &rsaquo; Calendar &rsaquo; Accounts &rsaquo; Add Subscribed Calendar, and paste the link.</li>
+                <li><strong>Outlook:</strong> the button opens Outlook on the web; in Outlook desktop use Add calendar &rsaquo; Subscribe from web.</li>
+                <li><strong>Only Jumu&rsquo;ah?</strong> Use <code data-cal-url data-cal-query="?prayers=jumuah">https://virgin-mary-mosque.vercel.app/prayer-times.ics?prayers=jumuah</code> instead.</li>
+                <li><strong>Reminders:</strong> add <code>?reminder=10</code> to the link for an alert 10 minutes before each prayer (Apple and Outlook; Google uses its own notification settings).</li>
+              </ul>
+              <p class="form__hint">Feed address: <code data-cal-url>https://virgin-mary-mosque.vercel.app/prayer-times.ics</code>. Times update from the mosque display at awqat.com.au/vmm; calendar apps refresh subscribed feeds about once a day.</p>
+            </details>
+          </div>
+
+          <div data-reveal data-install-section>
+            <div class="section-head" style="margin-bottom: var(--space-4);">
+              <p class="section__eyebrow">On your phone</p>
+              <h2>Add the masjid to your home screen</h2>
+              <p>Prayer times at a tap, even without a connection &mdash; nothing to download from an app store.</p>
+            </div>
+            <div class="app-card">
+              <img class="app-card__icon" src="../assets/img/icon-192.png" width="72" height="72" alt="">
+              <div class="app-card__body">
+                <strong>Masjid Maryam</strong>
+                <span>Today&rsquo;s prayer times, Jumu&rsquo;ah, events and donations &mdash; one tap away.</span>
+              </div>
+              <button class="btn btn--accent" type="button" data-install><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-plus-square"/></svg> Add to home screen</button>
+              <p class="app-card__help" data-install-help hidden></p>
+            </div>
+            <ul class="feature-list feature-list--compact">
+              <li><span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-clock"/></svg></span><span><strong>Works offline</strong> &mdash; the year&rsquo;s prayer times are stored on your phone.</span></li>
+              <li><span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-sparkle"/></svg></span><span><strong>Opens full screen</strong> like an app, with its own icon.</span></li>
+              <li><span class="feature-list__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-check"/></svg></span><span><strong>Free</strong>, and it updates itself whenever the site does.</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@
   <title>Virgin Mary Mosque (Masjid Maryam) &mdash; Hoppers Crossing, Melbourne</title>
   <meta name="description" content="Virgin Mary Mosque (Masjid Maryam), 143 Hogans Rd, Hoppers Crossing. Daily prayer times synced with the mosque display, Jumu'ah at 12:15, 1:15 &amp; 2:15 PM, Islamic classes, nikah, janazah and community services.">
   <meta name="theme-color" content="#06180e">
+  <meta name="apple-mobile-web-app-title" content="Masjid Maryam">
   <link rel="canonical" href="https://www.virginmarymosque.org.au/">
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
   <link rel="manifest" href="./site.webmanifest">
@@ -108,6 +109,8 @@
           </div>
         </div>
       </div>
+
+      <div class="hero__cue" aria-hidden="true"><svg class="icon"><use href="./assets/img/icons.svg#i-chevron-down"/></svg></div>
 
       <button class="hero__pause" type="button" aria-label="Pause background slideshow" aria-pressed="false" data-hero-pause>
         <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
@@ -303,6 +306,23 @@
             <figcaption><strong>At dusk</strong><span>Pakistan &middot; Photo: Usama Sher Khan</span></figcaption>
           </figure>
         </div>
+      </div>
+    </section>
+
+    <!-- Instagram (shown only when the feed is switched on) -->
+    <section class="section" data-instagram-section hidden>
+      <div class="container">
+        <div class="split" style="align-items: end;">
+          <div data-reveal>
+            <p class="section__eyebrow">Latest on Instagram</p>
+            <h2>Life at the masjid</h2>
+          </div>
+          <p data-reveal style="color: var(--color-ink-muted);">
+            Announcements, Ramadan and Eid notices and community moments, as they happen.
+            <a href="https://instagram.com/virginmarymosque" rel="me noreferrer" target="_blank">Follow @virginmarymosque &rarr;</a>
+          </p>
+        </div>
+        <div class="ig-feed" data-instagram-feed="optional" data-limit="4" data-reveal></div>
       </div>
     </section>
 

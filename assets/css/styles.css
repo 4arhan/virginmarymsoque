@@ -4944,6 +4944,693 @@ a.info-card:hover {
   transform: none;
 }
 
+/* ---------- Calendar feed, home-screen app, install banner ---------- */
+.cal-subscribe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.cal-subscribe .form__hint {
+  flex-basis: 100%;
+}
+
+.cal-help {
+  margin-top: var(--space-4);
+}
+
+.cal-help ul {
+  display: grid;
+  gap: 0.6rem;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+}
+
+.cal-help code {
+  font-size: 0.82em;
+  overflow-wrap: anywhere;
+  color: var(--color-primary-700);
+}
+
+.app-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem 1rem;
+  align-items: center;
+  padding: var(--space-4);
+  border: 1px solid var(--color-line-gold);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-surface), var(--color-surface-warm));
+  box-shadow: var(--shadow-md);
+}
+
+.app-card__icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 1.1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.app-card__body strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-step-2);
+  line-height: 1.1;
+  color: var(--color-primary-900);
+}
+
+.app-card__body span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+}
+
+.app-card .btn,
+.app-card__help {
+  grid-column: 1 / -1;
+}
+
+.app-card__help {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-100);
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+
+.app-card__help .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  vertical-align: -0.25em;
+  color: var(--color-primary-700);
+}
+
+.feature-list--compact {
+  margin-top: var(--space-4);
+  gap: 0.7rem;
+  font-size: 0.92rem;
+}
+
+.feature-list--compact li > span:last-child {
+  color: var(--color-ink-muted);
+}
+
+.feature-list--compact strong {
+  display: inline;
+}
+
+.feature-list--compact .feature-list__icon {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.feature-list--compact .feature-list__icon .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.install-banner {
+  position: fixed;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: calc(var(--tabbar-h, 0rem) + 0.9rem + env(safe-area-inset-bottom));
+  z-index: 55;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(226, 206, 141, 0.35);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(150deg, var(--color-primary-900), var(--color-primary-800));
+  color: var(--color-ondark);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  translate: 0 1rem;
+  transition: opacity var(--dur) var(--ease-out), translate var(--dur) var(--ease-out);
+}
+
+.install-banner.is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.install-banner__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.8rem;
+}
+
+.install-banner__text {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--color-ondark-muted);
+}
+
+.install-banner__text > strong:first-child {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-ondark);
+}
+
+.install-banner__text span strong {
+  color: var(--color-accent-300);
+}
+
+.install-banner__text .icon {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: -0.2em;
+  color: var(--color-accent-300);
+}
+
+.install-banner__close {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-ondark);
+  cursor: pointer;
+}
+
+.install-banner__close .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+html.is-standalone .install-banner {
+  display: none;
+}
+
+/* ---------- Instagram feed ---------- */
+.ig-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(13rem, 100%), 1fr));
+}
+
+@media (max-width: 30em) {
+  .ig-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+}
+
+.ig-post {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-900);
+  box-shadow: var(--shadow-sm);
+  isolation: isolate;
+}
+
+.ig-post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-out);
+}
+
+.ig-post:hover img,
+.ig-post:focus-visible img {
+  transform: scale(1.06);
+}
+
+.ig-post__badge {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: rgba(6, 24, 14, 0.55);
+  color: #fff;
+}
+
+.ig-post__badge .icon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.ig-post__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.6rem 0.75rem 0.65rem;
+  background: linear-gradient(180deg, transparent, rgba(6, 24, 14, 0.85));
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease-out);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ig-post:hover .ig-post__caption,
+.ig-post:focus-visible .ig-post__caption {
+  opacity: 1;
+}
+
+.ig-follow__card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem 1.1rem;
+  align-items: center;
+  max-width: 40rem;
+  padding: var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.ig-follow__card:hover {
+  color: inherit;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ig-follow__icon {
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 1rem;
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b 55%, #6228d7);
+  color: #fff;
+}
+
+.ig-follow__icon .icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.ig-follow__body strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-step-2);
+  color: var(--color-primary-900);
+}
+
+.ig-follow__body span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+}
+
+.ig-follow__card .btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+/* ---------- WhatsApp ---------- */
+.btn--whatsapp {
+  background: #25d366;
+  border-color: #25d366;
+  color: #062b14;
+}
+
+.btn--whatsapp:hover {
+  background: #1fb85a;
+  border-color: #1fb85a;
+  color: #062b14;
+  box-shadow: 0 12px 28px -12px rgba(37, 211, 102, 0.6);
+}
+
+.btn--whatsapp .icon,
+.chip--whatsapp .icon {
+  color: inherit;
+}
+
+.chip--whatsapp {
+  border-color: rgba(37, 211, 102, 0.45);
+  background: #e9fbef;
+  color: #116b32;
+}
+
+.info-card--whatsapp .info-card__icon {
+  background: #e9fbef;
+  color: #128c43;
+  box-shadow: inset 0 0 0 1px rgba(37, 211, 102, 0.4);
+}
+
+.nav-quick__item.is-whatsapp .icon {
+  color: #5ee59a;
+}
+
+/* ---------- Visit planner ---------- */
+.planner-host {
+  padding: var(--space-4);
+  border: 1px solid var(--color-line-gold);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.planner__progress {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.planner__progress span {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-line);
+  transition: background-color var(--dur) var(--ease-out);
+}
+
+.planner__progress span.is-done {
+  background: var(--color-accent-500);
+}
+
+.planner__count {
+  margin-top: 0.8rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.planner__step {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.planner__question {
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-step-2);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-primary-900);
+}
+
+.planner__question:focus {
+  outline: none;
+}
+
+.planner__hint {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+}
+
+.planner__options {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: var(--space-3);
+}
+
+.planner__option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.planner__option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.planner__option span {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-weight: 600;
+  color: var(--color-primary-900);
+  transition: border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.planner__option span::before {
+  content: "";
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1.5px solid var(--color-line);
+  border-radius: 50%;
+  transition: inherit;
+}
+
+.planner__option input[type="checkbox"] + span::before {
+  border-radius: 0.3rem;
+}
+
+.planner__option:hover span {
+  border-color: var(--color-line-gold);
+}
+
+.planner__option input:checked + span {
+  border-color: var(--color-accent-500);
+  background: var(--color-accent-100);
+  box-shadow: 0 0 0 1px var(--color-accent-500);
+}
+
+.planner__option input:checked + span::before {
+  border-color: var(--color-primary-700);
+  background: var(--color-primary-700) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e2ce8d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center / 0.7rem no-repeat;
+}
+
+.planner__option input:focus-visible + span {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+.planner__nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: var(--space-4);
+}
+
+.planner__nav .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.planner__title {
+  margin-top: 0.4rem;
+  font-size: var(--fs-step-3);
+}
+
+.planner__title:focus {
+  outline: none;
+}
+
+.planner__list {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.planner__list li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.planner__list li > div > strong {
+  display: block;
+  color: var(--color-primary-900);
+}
+
+.planner__list p {
+  margin-top: 0.15rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+.planner__list p strong {
+  color: var(--color-ink-soft);
+}
+
+.planner__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.7rem;
+  background: linear-gradient(150deg, var(--color-primary-800), var(--color-primary-600));
+  color: var(--color-accent-300);
+}
+
+.planner__icon .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.planner__calendar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: var(--space-4);
+  padding: 0.85rem 1rem;
+  border: 1px dashed var(--color-line-gold);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-warm);
+  font-size: 0.9rem;
+}
+
+.planner__calendar strong {
+  flex-basis: 100%;
+  color: var(--color-primary-900);
+}
+
+.planner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: var(--space-4);
+}
+
+/* ---------- Cosmetic touches ---------- */
+
+/* Cross-fade between pages (Chrome, Edge, Safari 18+); off with reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.22s;
+  }
+}
+
+/* Inner-page photos drift as you scroll (browsers with scroll-driven animations) */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .page-hero__bg {
+      top: -22%;
+      height: 122%;
+      animation: page-hero-settle 16s var(--ease-out) both, page-hero-drift linear both;
+      animation-timeline: auto, scroll(root);
+      animation-range: normal, 0 70vh;
+    }
+  }
+}
+
+@keyframes page-hero-drift {
+  to {
+    translate: 0 16%;
+  }
+}
+
+/* Homepage hero: a gentle scroll cue that fades once you scroll */
+.hero__cue {
+  position: absolute;
+  left: 50%;
+  bottom: 4.2rem;
+  z-index: 2;
+  display: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  translate: -50% 0;
+  border: 1px solid rgba(226, 206, 141, 0.45);
+  border-radius: 50%;
+  color: var(--color-accent-300);
+  animation: cue-bob 2.4s var(--ease-out) infinite;
+  transition: opacity var(--dur) var(--ease-out);
+}
+
+@media (min-width: 62em) {
+  .hero__cue {
+    display: grid;
+  }
+}
+
+.hero__cue .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+body:has(.site-header.is-scrolled) .hero__cue {
+  opacity: 0;
+}
+
+@keyframes cue-bob {
+  0%,
+  100% {
+    translate: -50% 0;
+  }
+
+  50% {
+    translate: -50% 6px;
+  }
+}
+
+/* FAQ answers ease in */
+main details[open] > :not(summary) {
+  animation: details-in 0.3s var(--ease-out) both;
+}
+
+@keyframes details-in {
+  from {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+}
+
+/* Prayer times line up */
+.prayer-widget__time {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Framed photos zoom a touch on hover */
+.media-frame {
+  overflow: visible;
+}
+
+.media-frame img {
+  transition: transform 0.9s var(--ease-out);
+}
+
+.media-frame:hover img {
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
 /* ---------- Phone layout overrides (after the components they adjust) ---------- */
 @media (max-width: 48em) {
   /* Card rows become a swipeable, snapping carousel that bleeds to the screen edges. */
